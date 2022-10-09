@@ -8,7 +8,7 @@ namespace Tea.Tests.Parser
         public void ParseOne()
         {
             TeaParser parser = new TeaParser();
-            parser.Parse("D:25");
+            parser.Parse("D:23");
         }
     }
 }

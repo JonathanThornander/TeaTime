@@ -9,13 +9,19 @@ namespace Tea.Core.Parser
 {
     public class TeaParser
     {
-        private readonly FunctionRouter _functionRouter = new FunctionRouter();
-        private readonly ExpressionParser _functionParser = new ExpressionParser();
+        private readonly ExpressionParser _parser = new ExpressionParser();
+
+        private readonly FunctionResolver _functionRouter = new FunctionResolver();
 
         public Expression Parse(string expression)
         {
-            var parsed = _functionParser.Parse(expression);
-            return _functionRouter.Resolve(parsed);
+            var parsed = _parser.Parse(expression);
+
+            return parsed switch
+            {
+                ParsedFunction => _functionRouter.Resolve((ParsedFunction)parsed),
+                _ => throw new Exception()
+            };
         }
     }
 }

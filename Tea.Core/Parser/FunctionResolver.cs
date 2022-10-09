@@ -9,15 +9,10 @@ using Tea.Core.Parser.Implementations;
 
 namespace Tea.Core.Parser
 {
-    public class FunctionRouter
+    public abstract class FunctionResolver
     {
-        private readonly AllFunctionResolver allFunctionResolver = new();
+        public abstract Func<string, bool> ResolvedFor { get; }
 
-        public Expression Resolve(ParsedExpressionData parsedFunction)
-        {
-
-            if (parsedFunction.Name.Equals("ALL", StringComparison.CurrentCultureIgnoreCase)) return allFunctionResolver.Resolve(parsedFunction);
-            else throw new NotImplementedException();
-        }
+        public abstract Expression Resolve(ParsedFunction parsedFunction);
     }
 }

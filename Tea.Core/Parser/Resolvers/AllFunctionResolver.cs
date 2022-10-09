@@ -7,9 +7,11 @@ using Tea.Core.Expressions;
 
 namespace Tea.Core.Parser.Implementations
 {
-    internal class AllFunctionResolver
+    internal class AllFunctionResolver : FunctionResolver
     {
-        public Expression Resolve(ParsedExpressionData parsedFunction)
+        public override Func<string, bool> ResolvedFor => (val) => val.Equals("ANY", StringComparison.CurrentCultureIgnoreCase);
+
+        public override Expression Resolve(ParsedFunction parsedFunction)
         {
             throw new NotImplementedException();
         }
