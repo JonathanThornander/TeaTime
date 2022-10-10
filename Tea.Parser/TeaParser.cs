@@ -1,11 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Linq;
 using Tea.Core.Expressions;
 
-namespace Tea.Core.Parser
+namespace Tea.Parser
 {
     public class TeaParser
     {

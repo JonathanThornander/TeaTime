@@ -1,4 +1,6 @@
-﻿namespace Tea.Core.Expressions.Selectors
+﻿using System;
+
+namespace Tea.Core.Expressions.Selectors
 {
     public class SecondOfMinuteSelector : SelectorExpression
     {

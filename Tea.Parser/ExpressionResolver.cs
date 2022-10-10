@@ -1,12 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Globalization;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Tea.Core.Expressions;
+﻿using Tea.Core.Expressions;
 
-namespace Tea.Core.Parser
+namespace Tea.Parser
 {
     public abstract class ExpressionResolver
     {

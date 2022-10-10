@@ -1,4 +1,7 @@
-﻿namespace Tea.Core.LINQExtensions
+﻿using System;
+using System.Collections.Generic;
+
+namespace Tea.Core.LINQExtensions
 {
     public static class DateTimeSequenceExtensions
     {

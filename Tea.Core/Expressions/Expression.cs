@@ -1,4 +1,6 @@
-﻿using Tea.Core.Exceptions;
+﻿using System;
+using System.Collections.Generic;
+using Tea.Core.Exceptions;
 
 namespace Tea.Core.Expressions
 {
@@ -57,7 +59,7 @@ namespace Tea.Core.Expressions
         }
     }
 
-    internal record ValidationResult
+    internal class ValidationResult
     {
         public ValidationResult(bool valid)
         {

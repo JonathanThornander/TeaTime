@@ -1,4 +1,6 @@
-﻿namespace Tea.Core.Expressions
+﻿using System;
+
+namespace Tea.Core.Expressions
 {
     public abstract class SelectorExpression : Expression
     {

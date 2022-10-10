@@ -3,9 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Tea.Core.Expressions;
 
-namespace Tea.Core.Parser
+namespace Tea.Parser
 {
     public class ExpressionParser
     {
@@ -100,7 +99,7 @@ namespace Tea.Core.Parser
                 {
                     depth--;
                 }
-                
+
                 if (charEnumerator.Current == ',' && depth == 0)
                 {
                     parameters.Add(sb.ToString().Trim());
@@ -126,7 +125,7 @@ namespace Tea.Core.Parser
             {
                 return ExpressionType.Constant;
             }
-            
+
             if (selectorTest < functionTest || functionTest == -1)
             {
                 return ExpressionType.Selector;
@@ -140,24 +139,24 @@ namespace Tea.Core.Parser
 
     }
 
-    public record ParsedExpression
+    public class ParsedExpression
     {
-        public string Name { get; init; }
+        public string Name { get; set; }
     }
 
-    public record ParsedFunction : ParsedExpression
+    public class ParsedFunction : ParsedExpression
     {
-        public string[] Parameters { get; init; }
+        public string[] Parameters { get; set; }
     }
 
-    public record ParsedSelector : ParsedExpression
+    public class ParsedSelector : ParsedExpression
     {
-        public string Parameter { get; init; }
+        public string Parameter { get; set; }
 
         public bool Negated { get; set; }
     }
 
-    public record ParsedConstant : ParsedExpression
+    public class ParsedConstant : ParsedExpression
     {
     }
 

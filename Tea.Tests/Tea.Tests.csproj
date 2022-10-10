@@ -23,6 +23,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Tea.Core\Tea.Core.csproj" />
+    <ProjectReference Include="..\Tea.Parser\Tea.Parser.csproj" />
   </ItemGroup>
 
 </Project>

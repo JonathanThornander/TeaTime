@@ -1,4 +1,6 @@
-﻿using System.Text;
+﻿using System;
+using System.Linq;
+using System.Text;
 using Tea.Core.LINQExtensions;
 using static Tea.Core.LINQExtensions.DateTimeSequenceExtensions;
 
@@ -26,16 +28,16 @@ namespace Tea.Core.Expressions.Functional
                     .Select(exp => exp.NextOccurance(reference))
                     .Traverse();
 
-                switch (traverseResult)
+                if (traverseResult is NullTraverseResult)
                 {
-                    case NullTraverseResult:
-                        return null;
-                    case AllEqualTraverseResult:
-                        return ((AllEqualTraverseResult)traverseResult).Value;
-                    case UnequalResult:
-                        reference = ((UnequalResult)traverseResult).Max;
-                        break;
+                    return null;
                 }
+                if (traverseResult is AllEqualTraverseResult result)
+                {
+                    return result.Value;
+                }
+
+                reference = ((UnequalResult)traverseResult).Max;
             }
         }
 

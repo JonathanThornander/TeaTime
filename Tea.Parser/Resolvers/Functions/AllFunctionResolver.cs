@@ -1,12 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Tea.Core.Expressions;
 using Tea.Core.Expressions.Functional;
 
-namespace Tea.Core.Parser.Resolvers.Functions
+namespace Tea.Parser.Resolvers.Functions
 {
     public class AllFunctionResolver : ExpressionResolver
     {
@@ -26,7 +23,7 @@ namespace Tea.Core.Parser.Resolvers.Functions
 
         public override bool ResolvesFor(ParsedExpression parsed)
         {
-            if (parsed is not ParsedFunction)
+            if (parsed is ParsedFunction == false)
             {
                 return false;
             }

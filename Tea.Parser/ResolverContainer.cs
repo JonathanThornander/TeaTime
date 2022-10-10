@@ -1,12 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Tea.Core.Parser.Resolvers.Functions;
-using Tea.Core.Parser.Resolvers.Selectors;
+﻿using System.Collections.Generic;
+using Tea.Parser.Resolvers.Functions;
+using Tea.Parser.Resolvers.Selectors;
 
-namespace Tea.Core.Parser
+namespace Tea.Parser
 {
     public class Container
     {

@@ -40,7 +40,7 @@ namespace Tea.Core.Expressions.Functional.Shifters
 
             if (innerValidation.Valid == false)
             {
-                StringBuilder sb = new();
+                StringBuilder sb = new StringBuilder();
 
                 sb.AppendLine($"Inner expression of {GetType().Name} are not valid:");
                 sb.AppendLine(innerValidation.Message);
