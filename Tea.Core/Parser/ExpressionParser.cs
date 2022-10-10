@@ -68,14 +68,53 @@ namespace Tea.Core.Parser
         {
             var name = data.Split('(')[0];
 
-            var insideParentheses = data.Split('(')[1].Split(')')[0];
-            var parameters = insideParentheses.Split(',', StringSplitOptions.TrimEntries);
+
+            var openingParenthesis = data.IndexOf('(') + 1;
+            var closingParenthesis = data.LastIndexOf(')');
+
+            var insideParentheses = data[openingParenthesis..closingParenthesis];
+            string[] parameters = ParseFunctionParameters(insideParentheses);
 
             return new ParsedFunction()
             {
                 Name = name,
                 Parameters = parameters,
             };
+        }
+
+        private static string[] ParseFunctionParameters(string insideParentheses)
+        {
+            List<string> parameters = new List<string>();
+
+            var depth = 0;
+            var sb = new StringBuilder();
+
+            using var charEnumerator = insideParentheses.GetEnumerator();
+            while (charEnumerator.MoveNext())
+            {
+                if (charEnumerator.Current == '(')
+                {
+                    depth++;
+                }
+                else if (charEnumerator.Current == ')')
+                {
+                    depth--;
+                }
+                
+                if (charEnumerator.Current == ',' && depth == 0)
+                {
+                    parameters.Add(sb.ToString().Trim());
+                    sb.Clear();
+                }
+                else
+                {
+                    sb.Append(charEnumerator.Current);
+                }
+            }
+
+            parameters.Add(sb.ToString().Trim());
+
+            return parameters.ToArray();
         }
 
         private ExpressionType GetTokenType(string data)

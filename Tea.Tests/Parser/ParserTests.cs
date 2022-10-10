@@ -8,13 +8,8 @@ namespace Tea.Tests.Parser
         [Fact]
         public void ParseOne()
         {
-            var resolvers = new List<ExpressionResolver>()
-            {
-                new AllFunctionResolver()
-            };
-
-            TeaParser parser = new TeaParser(resolvers);
-            parser.Parse("SWITCH(D:25 M:18, Sumberge, D:19)");
+            TeaParser parser = new TeaParser();
+            parser.Parse("ALL(D:25 M:18, ANY(D:1, D:2), D:19)");
         }
     }
 }
