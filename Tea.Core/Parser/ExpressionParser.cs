@@ -29,7 +29,7 @@ namespace Tea.Core.Parser
 
         }
 
-        private static ParsedExpression ParseConstant(string data)
+        private static ParsedConstant ParseConstant(string data)
         {
             return new ParsedConstant()
             {
@@ -37,7 +37,7 @@ namespace Tea.Core.Parser
             };
         }
 
-        private static ParsedExpression ParseSelector(string data)
+        private static ParsedSelector ParseSelector(string data)
         {
             var negate = false;
             var name = "";
@@ -64,7 +64,7 @@ namespace Tea.Core.Parser
             };
         }
 
-        private static ParsedExpression ParseFunction(string data)
+        private static ParsedFunction ParseFunction(string data)
         {
             var name = data.Split('(')[0];
 

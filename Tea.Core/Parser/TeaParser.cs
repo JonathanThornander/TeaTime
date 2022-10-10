@@ -11,17 +11,18 @@ namespace Tea.Core.Parser
     {
         private readonly ExpressionParser _parser = new ExpressionParser();
 
-        private readonly FunctionResolver _functionRouter = new FunctionResolver();
+        private IEnumerable<ExpressionResolver> _resolvers;
+
+        public TeaParser(IEnumerable<ExpressionResolver> resolvers)
+        {
+            _resolvers = resolvers;
+        }
 
         public Expression Parse(string expression)
         {
             var parsed = _parser.Parse(expression);
-
-            return parsed switch
-            {
-                ParsedFunction => _functionRouter.Resolve((ParsedFunction)parsed),
-                _ => throw new Exception()
-            };
+            var resolver = _resolvers.Where(resolver => resolver.ResolvesFor(parsed)).First();
+            return resolver.Resolve(parsed);
         }
     }
 }

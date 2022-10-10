@@ -1,4 +1,5 @@
 using Tea.Core.Parser;
+using Tea.Core.Parser.Resolvers.Functions;
 
 namespace Tea.Tests.Parser
 {
@@ -7,8 +8,13 @@ namespace Tea.Tests.Parser
         [Fact]
         public void ParseOne()
         {
-            TeaParser parser = new TeaParser();
-            parser.Parse("D:23");
+            var resolvers = new List<ExpressionResolver>()
+            {
+                new AllFunctionResolver()
+            };
+
+            TeaParser parser = new TeaParser(resolvers);
+            parser.Parse("SWITCH(D:25 M:18, Sumberge, D:19)");
         }
     }
 }
