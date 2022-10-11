@@ -9,7 +9,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tea.Console", "Tea.Console\
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tea.Tests", "Tea.Tests\Tea.Tests.csproj", "{AAE76D1B-C2F8-48D4-BC0C-1ABE242448F7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tea.Parser", "Tea.Parser\Tea.Parser.csproj", "{13CF5331-91D5-4882-9446-889F3A60C299}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tea.Parser", "Tea.Parser\Tea.Parser.csproj", "{13CF5331-91D5-4882-9446-889F3A60C299}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TeaTime", "TeaTime\TeaTime.csproj", "{FFAC7C25-1CC8-47CC-BCC7-DCF36FABAD2F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{13CF5331-91D5-4882-9446-889F3A60C299}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{13CF5331-91D5-4882-9446-889F3A60C299}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{13CF5331-91D5-4882-9446-889F3A60C299}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FFAC7C25-1CC8-47CC-BCC7-DCF36FABAD2F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FFAC7C25-1CC8-47CC-BCC7-DCF36FABAD2F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FFAC7C25-1CC8-47CC-BCC7-DCF36FABAD2F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FFAC7C25-1CC8-47CC-BCC7-DCF36FABAD2F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -28,6 +28,7 @@ namespace Tea.Parser.Services
             {
                 "OR" => new OrFunctionResolver(),
                 "AND" => new AndFunctionResolver(),
+                "SHIFT" => new ShiftFunctionResolver(),
 
                 _ => throw new ArgumentException($"Could not find any resolver for function '{parsedFunction.Name}'"),
             };
@@ -37,6 +38,7 @@ namespace Tea.Parser.Services
         {
             return parsedSelector.Name.ToUpperInvariant() switch
             {
+                "Y" => new YearResolver(),
                 "M" => new MonthOfYearResolver(),
                 "D" => new DayOfMonthSelectorResolver(),
                 "W" => new DayOfWeekResolver(),

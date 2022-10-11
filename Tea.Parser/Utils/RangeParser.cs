@@ -20,7 +20,13 @@ namespace Tea.Parser.Utils
             }
             else if (parameter.Contains('|'))
             {
-                throw new NotImplementedException("Not yet implemented");
+                var startSring = parameter.Split('|')[0];
+                var endString = parameter.Split('|')[1];
+
+                var start = int.Parse(startSring);
+                var end = int.Parse(endString);
+
+                return new int[] { start, end };
             }
 
             var value = int.Parse(parameter);
@@ -42,7 +48,13 @@ namespace Tea.Parser.Utils
             }
             else if (parameter.Contains('|'))
             {
-                throw new NotImplementedException("Not yet implemented");
+                var startSring = parameter.Split('|')[0];
+                var endString = parameter.Split('|')[1];
+
+                var start = translator.NameToInt(startSring);
+                var end = translator.NameToInt(endString);
+
+                return new int[] { start, end };
             }
 
             var translated = translator.NameToInt(parameter);

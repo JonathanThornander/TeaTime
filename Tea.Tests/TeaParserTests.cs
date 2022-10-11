@@ -17,11 +17,11 @@ namespace Tea.Tests
             var parser = TeaParser.Instance;
             var reference = DateTime.Parse("2022-10-11");
 
-            var input = "AND(!W:FRIDAY HH:0 MM:0 SS:0)";
+            var input = "SHIFT(D:10-11 HH:18 SS:0, -10, M)";
 
             var tea = parser.Parse(input);
 
-            var ocus = tea.GetBetween(reference, reference.AddYears(1));
+            var ocus = tea.GetBetween(reference, reference.AddMonths(10));
             foreach (var date in ocus)
             {
                 Debug.WriteLine(date.ToString("F"));

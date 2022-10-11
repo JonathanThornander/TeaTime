@@ -21,6 +21,11 @@ namespace Tea.Parser.Resolvers.Selectors
 
             var expressions = days.Select(day => new SecondOfMinuteSelector(day, parsedSelector.Negated)).ToArray();
 
+            if (parsedSelector.Negated)
+            {
+                return new AndFunction(expressions);
+            }
+
             return new OrFunction(expressions);
         }
     }

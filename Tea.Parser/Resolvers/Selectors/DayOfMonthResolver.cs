@@ -22,7 +22,12 @@ namespace Tea.Parser.Resolvers.Selectors
 
             var expressions = days.Select(day => new DayOfMonthSelector(day, parsedSelector.Negated)).ToArray();
 
-            return new OrFunction(expressions);
+            if (parsedSelector.Negated)
+            {
+                return new AndFunction(expressions);
+            }
+
+            return  new OrFunction(expressions);
         }
     }
 }
