@@ -17,7 +17,7 @@ namespace Tea.Tests.Utils
             var input = "1-6";
 
             // Act
-            var range = RangeParser.ParseRange(input);
+            var range = new RangeParser().ParseRange(input);
 
             // Assert
             Assert.True(range.Length == 6);
@@ -30,7 +30,7 @@ namespace Tea.Tests.Utils
             var input = "6-1";
 
             // Act
-            var range = RangeParser.ParseRange(input);
+            var range = new RangeParser().ParseRange(input);
 
             // Assert
             Assert.True(range.Length == 6);

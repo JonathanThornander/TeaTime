@@ -1,5 +1,4 @@
-﻿using System;
-using System.Linq;
+﻿using System.Linq;
 using Tea.Core.Expressions;
 using Tea.Core.Expressions.Functional;
 using Tea.Core.Expressions.Selectors;
@@ -7,7 +6,7 @@ using Tea.Parser.Utils;
 
 namespace Tea.Parser.Resolvers.Selectors
 {
-    internal class DayOfMonthSelectorResolver : ExpressionResolver
+    internal class SecondOfMinuteResolver : ExpressionResolver
     {
         public override Expression Resolve(ParsedExpression parsedExpression)
         {
@@ -17,10 +16,10 @@ namespace Tea.Parser.Resolvers.Selectors
 
             if (days.Length == 1)
             {
-                return new DayOfMonthSelector(days[0], parsedSelector.Negated);
+                return new SecondOfMinuteSelector(days[0], parsedSelector.Negated);
             }
 
-            var expressions = days.Select(day => new DayOfMonthSelector(day, parsedSelector.Negated)).ToArray();
+            var expressions = days.Select(day => new SecondOfMinuteSelector(day, parsedSelector.Negated)).ToArray();
 
             return new OrFunction(expressions);
         }

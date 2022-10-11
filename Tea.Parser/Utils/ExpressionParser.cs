@@ -8,7 +8,6 @@ namespace Tea.Parser
 {
     public class ExpressionParser
     {
-
         public ParsedExpression Parse(string data)
         {
             ExpressionType type = GetTokenType(data);
