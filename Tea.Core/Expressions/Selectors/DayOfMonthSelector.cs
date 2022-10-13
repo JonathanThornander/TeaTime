@@ -48,11 +48,11 @@ namespace Tea.Core.Expressions.Selectors
         {
             if (_day < 1)
             {
-                return new ValidationResult(false, "Minute must be equal or grater than 1");
+                return new ValidationResult(false, "Day must be equal or grater than 1");
             }
             else if (_day > 32)
             {
-                return new ValidationResult(false, "Minute must be less or equal to 32");
+                return new ValidationResult(false, "Day must be less or equal to 32");
             }
 
             return new ValidationResult(true);

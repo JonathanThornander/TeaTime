@@ -13,7 +13,7 @@ namespace Tea.Parser.Resolvers.Functions
             var parsedFunction = (ParsedFunction)parsedExpression;
 
             var teaExpressionString = parsedFunction.Parameters[0];
-            var expressionTokens = teaExpressionString.Split(" ", StringSplitOptions.RemoveEmptyEntries);
+            string[] expressionTokens = TokensParser.ParseTokens(teaExpressionString);
 
             var expressions = expressionTokens.Select(token => TeaParser.Instance.Parse(token)).ToArray();
 

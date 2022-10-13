@@ -5,6 +5,7 @@ using System.Xml.Linq;
 using Tea.Core.Expressions.Selectors;
 using Tea.Parser.Resolvers.Functions;
 using Tea.Parser.Resolvers.Selectors;
+using Tea.Parser.Resolvers.Selectors.Modular;
 using Tea.Parser.Utils;
 
 namespace Tea.Parser.Services
@@ -45,6 +46,14 @@ namespace Tea.Parser.Services
                 "HH" => new HourOfDayResolver(),
                 "MM" => new MinuteOfHourResolver(),
                 "SS" => new SecondOfMinuteResolver(),
+                
+                "Y%" => new YearModResolver(),
+                "M%" => new MonthModResolver(),
+                "D%" => new DayModResolver(),
+                "HH%" => new HourModResolver(),
+                "MM%" => new MinuteModResolver(),
+                "SS%" => new SecondModResolver(),
+
 
                 _ => throw new ArgumentException($"Could not find any resolver for selector '{parsedSelector.Name}'"),
             };

@@ -9,7 +9,7 @@ namespace TeaTime
     {
         private readonly TeaParser _parser = new TeaParser();
 
-        public Expression Parser(string expression)
+        public Expression Parse(string expression)
         {
             var input = $"AND({expression})";
 

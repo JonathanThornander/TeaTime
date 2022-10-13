@@ -12,27 +12,23 @@ internal class Program
     private static void Main(string[] args)
     {
         TeaTimeParser schedule = new TeaTimeParser();
-        DateTime reference = DateTime.Parse("2022-01-01");
+        DateTime reference = DateTime.Parse("1998-01-01");
 
-        while (true)
+        var input = "!Y%:4 M:1 D:1 HH:0 MM:0 SS:0";
+
+        var expression = schedule.Parse(input);
+
+        var stopWatch = Stopwatch.StartNew();
+        var next = expression.GetBetween(reference, reference.AddYears(100)).ToArray();
+        stopWatch.Stop();
+
+        foreach (var date in next)
         {
-            var input = Console.ReadLine();
-
-            var expression = schedule.Parser(input);
-
-            var stopWatch = Stopwatch.StartNew();
-            var next = expression.GetBetween(reference, reference.AddYears(1));
-            stopWatch.Stop();
-
-            using var enumerator = next.GetEnumerator();
-            while (enumerator.MoveNext())
-            {
-                Console.WriteLine(enumerator.Current.ToString("F"));
-            }
-
-            Console.WriteLine(stopWatch.ElapsedMilliseconds);
+            Console.WriteLine(date.ToString("F"));
         }
 
-        
+        Console.WriteLine(stopWatch.ElapsedMilliseconds);
+
+
     }
 }
