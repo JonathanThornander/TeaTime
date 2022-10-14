@@ -17,7 +17,7 @@ namespace Tea.Core.Expressions.Selectors.Modular
 
         protected override DateTime? GetNext(DateTime reference)
         {
-            var DaysToNext = reference.Day % _modValue;
+            var DaysToNext = _modValue - (reference.Day % _modValue);
 
             if (DaysToNext == 0)
             {
@@ -34,14 +34,25 @@ namespace Tea.Core.Expressions.Selectors.Modular
 
         protected override DateTime? GetNextNegate(DateTime reference)
         {
-            var DaysToNext = reference.Day % _modValue;
+            int daysToNext = DaysUntilNext(reference);
 
-            if (DaysToNext == 0)
+            if (daysToNext == 0)
             {
                 return Create(reference).AddDays(1);
             }
 
             return reference;
+        }
+
+        private int DaysUntilNext(DateTime reference)
+        {
+            var modResult = reference.Day % _modValue;
+
+            if (modResult == 0)
+            {
+                return modResult;
+            }
+            return _modValue - modResult;
         }
 
         internal override ValidationResult Validate()

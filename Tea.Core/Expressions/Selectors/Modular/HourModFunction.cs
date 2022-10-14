@@ -17,14 +17,14 @@ namespace Tea.Core.Expressions.Selectors.Modular
 
         protected override DateTime? GetNext(DateTime reference)
         {
-            var HoursToNext = reference.Hour % _modValue;
+            var hoursToNext = HoursToNext(reference);
 
-            if (HoursToNext == 0)
+            if (hoursToNext == 0)
             {
                 return reference;
             }
 
-            return Create(reference).AddHours(HoursToNext);
+            return Create(reference).AddHours(hoursToNext);
         }
 
         private static DateTime Create(DateTime reference)
@@ -34,9 +34,9 @@ namespace Tea.Core.Expressions.Selectors.Modular
 
         protected override DateTime? GetNextNegate(DateTime reference)
         {
-            var HoursToNext = reference.Hour % _modValue;
+            var hoursToNext = HoursToNext(reference);
 
-            if (HoursToNext == 0)
+            if (hoursToNext == 0)
             {
                 return Create(reference).AddHours(1);
             }
@@ -52,6 +52,17 @@ namespace Tea.Core.Expressions.Selectors.Modular
             }
 
             return new ValidationResult(true);
+        }
+
+        private int HoursToNext(DateTime reference)
+        {
+            var modResult = reference.Hour % _modValue;
+
+            if (modResult == 0)
+            {
+                return modResult;
+            }
+            return _modValue - modResult;
         }
     }
 }

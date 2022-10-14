@@ -17,24 +17,21 @@ namespace Tea.Core.Expressions.Selectors.Modular
 
         protected override DateTime? GetNext(DateTime reference)
         {
-            var yearsToNext = reference.Year % _modValue;
+            var yearsToNext = YearsToNext(reference);
 
             if (yearsToNext == 0)
             {
                 return reference;
             }
-            
-            return Create(reference).AddYears(yearsToNext);
-        }
 
-        private static DateTime Create(DateTime reference)
-        {
-            return new DateTime(reference.Year, 1, 1);
+            var created = Create(reference);
+            var next = created.AddYears(yearsToNext);
+            return next;
         }
 
         protected override DateTime? GetNextNegate(DateTime reference)
         {
-            var yearsToNext = reference.Year % _modValue;
+            var yearsToNext = YearsToNext(reference);
 
             if (yearsToNext == 0)
             {
@@ -52,6 +49,22 @@ namespace Tea.Core.Expressions.Selectors.Modular
             }
 
             return new ValidationResult(true);
+        }
+
+        private int YearsToNext(DateTime reference)
+        {
+            var modResult = reference.Year % _modValue;
+
+            if (modResult == 0)
+            {
+                return modResult;
+            }
+            return _modValue - modResult;
+        }
+
+        private static DateTime Create(DateTime reference)
+        {
+            return new DateTime(reference.Year, 1, 1);
         }
     }
 }

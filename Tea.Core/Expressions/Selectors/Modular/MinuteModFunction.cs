@@ -17,14 +17,14 @@ namespace Tea.Core.Expressions.Selectors.Modular
 
         protected override DateTime? GetNext(DateTime reference)
         {
-            var MinutesToNext = reference.Minute % _modValue;
+            var minutesToNext = MinutesToNext(reference);
 
-            if (MinutesToNext == 0)
+            if (minutesToNext == 0)
             {
                 return reference;
             }
 
-            return Create(reference).AddMinutes(MinutesToNext);
+            return Create(reference).AddMinutes(minutesToNext);
         }
 
         private static DateTime Create(DateTime reference)
@@ -34,9 +34,9 @@ namespace Tea.Core.Expressions.Selectors.Modular
 
         protected override DateTime? GetNextNegate(DateTime reference)
         {
-            var MinutesToNext = reference.Minute % _modValue;
+            var minutesToNext = MinutesToNext(reference);
 
-            if (MinutesToNext == 0)
+            if (minutesToNext == 0)
             {
                 return Create(reference).AddMinutes(1);
             }
@@ -52,6 +52,17 @@ namespace Tea.Core.Expressions.Selectors.Modular
             }
 
             return new ValidationResult(true);
+        }
+
+        private int MinutesToNext(DateTime reference)
+        {
+            var modResult = reference.Minute % _modValue;
+
+            if (modResult == 0)
+            {
+                return modResult;
+            }
+            return _modValue - modResult;
         }
     }
 }
