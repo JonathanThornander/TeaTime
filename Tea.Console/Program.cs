@@ -14,7 +14,7 @@ internal class Program
         TeaTimeParser schedule = new TeaTimeParser();
         DateTime reference = DateTime.Parse("1990-01-01");
 
-        var input = "OR(AND(Y%:4 !Y%:100) AND(Y%:4 Y%:100 Y%:400)) M%:4 D:1 HH:0 MM:0 SS:0";
+        var input = "LYR HH";
 
         var expression = schedule.Parse(input);
 

@@ -125,7 +125,7 @@ namespace Tea.Parser
                 return ExpressionType.Constant;
             }
 
-            if (selectorTest < functionTest || functionTest == -1)
+            if ((selectorTest < functionTest || functionTest == -1) && selectorTest != -1)
             {
                 return ExpressionType.Selector;
             }

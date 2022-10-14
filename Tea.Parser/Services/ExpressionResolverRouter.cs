@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.Xml.Linq;
 using Tea.Core.Expressions.Selectors;
+using Tea.Parser.Resolvers.Constants;
 using Tea.Parser.Resolvers.Functions;
 using Tea.Parser.Resolvers.Selectors;
 using Tea.Parser.Resolvers.Selectors.Modular;
@@ -63,6 +64,9 @@ namespace Tea.Parser.Services
         {
             return parsedConstant.Name.ToUpperInvariant() switch
             {
+                "LYR" => new LeapYearConstantResolver(),
+                "HH" => new WholeHourConstantResolver(),
+
                 _ => throw new ArgumentException($"Could not find any resolver for constant '{parsedConstant.Name}'"),
             };
         }
