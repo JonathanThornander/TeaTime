@@ -1,12 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace Tea.Core.Expressions.Functional.Shifters
 {
-    public class ShiftFunction : Expression
+    public abstract class ShiftFunction : Expression
     {
         private readonly Expression _expression;
 
@@ -54,22 +55,34 @@ namespace Tea.Core.Expressions.Functional.Shifters
 
     public class ShiftYearsFunction : ShiftFunction
     {
+        private readonly int _shift;
+        private readonly Expression _expression;
         public ShiftYearsFunction(Expression expression, int shift) : base(
             expression,
             shiftBack: (date) => { return date.AddYears(-shift); },
             shiftForward: (date) => { return date.AddYears(shift); })
         {
+            _shift = shift;
+            _expression = expression;
         }
+
+        internal override string GetSignature() => $"SHIFT({_expression.GetSignature()}, {_shift}, Y)";
     }
 
     public class ShiftMonthsFunction : ShiftFunction
     {
+        private readonly int _shift;
+        private readonly Expression _expression;
         public ShiftMonthsFunction(Expression expression, int shift, bool bleed = false) : base(
             expression,
             shiftBack: (date) => { return date.AddMonths(-shift); },
             shiftForward: (date) => { return ShiftForward(shift, date, bleed); })
         {
+            _shift = shift;
+            _expression = expression;
         }
+
+        internal override string GetSignature() => $"SHIFT({_expression.GetSignature()}, {_shift}, M)";
 
         private static DateTime ShiftForward(int shift, DateTime date, bool bleed)
         {
@@ -94,41 +107,65 @@ namespace Tea.Core.Expressions.Functional.Shifters
 
     public class ShiftDaysFunction : ShiftFunction
     {
+        private readonly int _shift;
+        private readonly Expression _expression;
         public ShiftDaysFunction(Expression expression, int shift) : base(
             expression,
             shiftBack: (date) => { return date.AddDays(-shift); },
             shiftForward: (date) => { return date.AddDays(shift); })
         {
+            _shift = shift;
+            _expression = expression;
         }
+
+        internal override string GetSignature() => $"SHIFT({_expression.GetSignature()}, {_shift}, D)";
     }
 
     public class ShiftHoursFunction : ShiftFunction
     {
+        private readonly int _shift;
+        private readonly Expression _expression;
         public ShiftHoursFunction(Expression expression, int shift) : base(
             expression,
             shiftBack: (date) => { return date.AddHours(-shift); },
             shiftForward: (date) => { return date.AddHours(shift); })
         {
+            _shift = shift;
+            _expression = expression;
         }
+
+        internal override string GetSignature() => $"SHIFT({_expression.GetSignature()}, {_shift}, HH)";
     }
 
     public class ShiftMinutesFunction : ShiftFunction
     {
+        private readonly int _shift;
+        private readonly Expression _expression;
         public ShiftMinutesFunction(Expression expression, int shift) : base(
             expression,
             shiftBack: (date) => { return date.AddMinutes(-shift); },
             shiftForward: (date) => { return date.AddMinutes(shift); })
         {
+            _shift = shift;
+            _expression = expression;
         }
+
+        internal override string GetSignature() => $"SHIFT({_expression.GetSignature()}, {_shift}, MM)";
     }
 
     public class ShiftSecondsFunction : ShiftFunction
     {
+        private readonly int _shift;
+        private readonly Expression _expression;
         public ShiftSecondsFunction(Expression expression, int shift) : base(
             expression,
             shiftBack: (date) => { return date.AddSeconds(-shift); },
             shiftForward: (date) => { return date.AddSeconds(shift); })
         {
+            _shift = shift;
+            _expression = expression;
         }
+
+        internal override string GetSignature() => $"SHIFT({_expression.GetSignature()}, {_shift}, SS)";
     }
 }

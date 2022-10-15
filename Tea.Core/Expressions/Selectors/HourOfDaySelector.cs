@@ -11,6 +11,8 @@ namespace Tea.Core.Expressions.Selectors
             _hour = hour;
         }
 
+        internal override string GetSignature() => $"HH:{_hour}";
+
         protected override DateTime? GetNext(DateTime reference)
         {
             if (reference.Hour == _hour)

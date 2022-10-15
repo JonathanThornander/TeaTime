@@ -15,21 +15,18 @@ namespace Tea.Core.Expressions.Selectors.Modular
             _modValue = modValue;
         }
 
+        internal override string GetSignature() => $"D%:{_modValue}";
+
         protected override DateTime? GetNext(DateTime reference)
         {
-            var DaysToNext = _modValue - (reference.Day % _modValue);
+            var daysToNext = DaysUntilNext(reference);
 
-            if (DaysToNext == 0)
+            if (daysToNext == 0)
             {
                 return reference;
             }
 
-            return Create(reference).AddDays(DaysToNext);
-        }
-
-        private static DateTime Create(DateTime reference)
-        {
-            return new DateTime(reference.Year, reference.Month, reference.Day, 0, 0, 0);
+            return Create(reference).AddDays(daysToNext);
         }
 
         protected override DateTime? GetNextNegate(DateTime reference)
@@ -42,6 +39,11 @@ namespace Tea.Core.Expressions.Selectors.Modular
             }
 
             return reference;
+        }
+
+        private static DateTime Create(DateTime reference)
+        {
+            return new DateTime(reference.Year, reference.Month, reference.Day, 0, 0, 0);
         }
 
         private int DaysUntilNext(DateTime reference)

@@ -15,6 +15,13 @@ namespace Tea.Core.Expressions.Selectors
             _dayOfWeek = dayOfWeek;
         }
 
+        public DayOfWeekSelector(int dayOfWeek, bool negate = false) : base(negate)
+        {
+            _dayOfWeek = (DayOfWeek)dayOfWeek;
+        }
+
+        internal override string GetSignature() => $"W:{(int)_dayOfWeek}";
+
         protected override DateTime? GetNext(DateTime reference)
         {
             if (reference.DayOfWeek == _dayOfWeek)

@@ -10,6 +10,8 @@ namespace Tea.Core.Expressions.Selectors
             _year = year;
         }
 
+        internal override string GetSignature() => $"Y:{_year}";
+
         protected override DateTime? GetNext(DateTime reference)
         {
             if (reference.Year == _year)

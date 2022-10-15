@@ -11,6 +11,8 @@ namespace Tea.Core.Expressions.Selectors
             _minute = minute;
         }
 
+        internal override string GetSignature() => $"MM:{_minute}";
+
         protected override DateTime? GetNext(DateTime reference)
         {
             if (reference.Minute == _minute)

@@ -11,7 +11,7 @@ namespace Tea.Core.Expressions.Selectors
             _second = second;
         }
 
-
+        internal override string GetSignature() => $"SS:{_second}";
 
         protected override DateTime? GetNext(DateTime reference)
         {

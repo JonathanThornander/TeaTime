@@ -12,14 +12,14 @@ internal class Program
     private static void Main(string[] args)
     {
         TeaTimeParser schedule = new TeaTimeParser();
-        DateTime reference = DateTime.Parse("1990-01-01");
+        DateTime reference = DateTime.Parse("2022-01-01");
 
-        var input = "LYR HH";
+        var input = "D:1 HH:0 MM:0 SS:0";
 
         var expression = schedule.Parse(input);
 
         var stopWatch = Stopwatch.StartNew();
-        var next = expression.GetBetween(reference, reference.AddYears(100)).ToArray();
+        var next = expression.GetBetween(reference, reference.AddYears(1)).ToArray();
         stopWatch.Stop();
 
         foreach (var date in next)

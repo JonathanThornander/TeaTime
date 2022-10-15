@@ -11,6 +11,8 @@ namespace Tea.Core.Expressions.Selectors
             _month = month;
         }
 
+        internal override string GetSignature() => $"M:{_month}";
+
         protected override DateTime? GetNext(DateTime reference)
         {
             if (reference.Month == _month)

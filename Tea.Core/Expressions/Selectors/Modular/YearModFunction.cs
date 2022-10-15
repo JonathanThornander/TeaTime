@@ -15,6 +15,8 @@ namespace Tea.Core.Expressions.Selectors.Modular
             _modValue = modValue;
         }
 
+        internal override string GetSignature() => $"Y%:{_modValue}";
+
         protected override DateTime? GetNext(DateTime reference)
         {
             var yearsToNext = YearsToNext(reference);

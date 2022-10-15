@@ -8,6 +8,8 @@ namespace Tea.Core.Expressions
     {
         private bool _validated = false;
 
+        public string Signature { get => GetSignature(); }
+
         public virtual DateTime? NextOccurance(DateTime reference)
         {
             EnsureValidated();
@@ -38,6 +40,13 @@ namespace Tea.Core.Expressions
                 reference = reference.AddSeconds(1);
             }
         }
+
+        internal virtual void Clean()
+        {
+            return;
+        }
+
+        internal abstract string GetSignature();
 
         internal abstract ValidationResult Validate();
 

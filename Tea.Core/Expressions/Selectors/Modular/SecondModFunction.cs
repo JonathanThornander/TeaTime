@@ -15,6 +15,8 @@ namespace Tea.Core.Expressions.Selectors.Modular
             _modValue = modValue;
         }
 
+        internal override string GetSignature() => $"SS%:{_modValue}";
+
         protected override DateTime? GetNext(DateTime reference)
         {
             var secondsToNext = SecondsToNext(reference);
@@ -27,11 +29,6 @@ namespace Tea.Core.Expressions.Selectors.Modular
             return Create(reference).AddSeconds(secondsToNext);
         }
 
-        private static DateTime Create(DateTime reference)
-        {
-            return new DateTime(reference.Year, reference.Month, reference.Day, reference.Hour, reference.Minute, reference.Second);
-        }
-
         protected override DateTime? GetNextNegate(DateTime reference)
         {
             var secondsToNext = SecondsToNext(reference);
@@ -42,6 +39,11 @@ namespace Tea.Core.Expressions.Selectors.Modular
             }
 
             return reference;
+        }
+
+        private static DateTime Create(DateTime reference)
+        {
+            return new DateTime(reference.Year, reference.Month, reference.Day, reference.Hour, reference.Minute, reference.Second);
         }
 
         internal override ValidationResult Validate()

@@ -13,6 +13,25 @@ namespace Tea.Core.Expressions.Functional
             _expressions = expressions;
         }
 
+        internal override string GetSignature()
+        {
+            var sb = new StringBuilder();
+            var inner = _expressions.Select(x => x.GetSignature());
+
+            sb.Append("OR(");
+
+            foreach (var expressionRepr in inner)
+            {
+                sb.Append(expressionRepr);
+                sb.Append(" ");
+            }
+
+            sb.Remove(sb.Length - 1, 1);
+            sb.Append(")");
+
+            return sb.ToString();
+        }
+
         protected override DateTime? GetNext(DateTime reference)
         {
             if (_expressions.Length == 0)

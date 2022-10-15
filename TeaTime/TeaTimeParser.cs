@@ -14,6 +14,7 @@ namespace TeaTime
             var input = $"AND({expression})";
 
             return _parser.Parse(input);
-        }       
+        }
+
     }
 }

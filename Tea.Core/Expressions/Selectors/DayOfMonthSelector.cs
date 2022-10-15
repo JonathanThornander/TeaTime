@@ -11,6 +11,8 @@ namespace Tea.Core.Expressions.Selectors
             _day = days;
         }
 
+        internal override string GetSignature() => $"D:{_day}";
+
         protected override DateTime? GetNext(DateTime reference)
         {
             if (reference.Day == _day)
