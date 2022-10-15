@@ -12,14 +12,14 @@ namespace Tea.Parser.Resolvers.Selectors
         {
             var parsedSelector = (ParsedSelector)parsedExpression;
 
-            var days = new RangeParser().ParseRange(parsedSelector.Parameter);
+            var years = new RangeParser().ParseRange(parsedSelector.Parameter);
 
-            if (days.Length == 1)
+            if (years.Length == 1)
             {
-                return new YearSelector(days[0], parsedSelector.Negated);
+                return new YearSelector(years[0], parsedSelector.Negated);
             }
 
-            var expressions = days.Select(day => new DayOfMonthSelector(day, parsedSelector.Negated)).ToArray();
+            var expressions = years.Select(year => new YearSelector(year, parsedSelector.Negated)).ToArray();
 
             if (parsedSelector.Negated)
             {
