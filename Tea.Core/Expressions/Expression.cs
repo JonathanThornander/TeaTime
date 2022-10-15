@@ -21,10 +21,10 @@ namespace Tea.Core.Expressions
             EnsureValidated();
             var reference = new DateTime(from.Year, from.Month, from.Day, from.Hour, from.Minute, from.Second);
 
-            while (reference <= to)
-            {
-                var nextPotential = GetNext(reference);
+            var nextPotential = GetNext(reference);
 
+            while (nextPotential < to)
+            {
                 if (nextPotential == null)
                 {
                     break;
@@ -36,8 +36,8 @@ namespace Tea.Core.Expressions
 
                 yield return reference;
 
-
                 reference = reference.AddSeconds(1);
+                nextPotential = GetNext(reference);
             }
         }
 

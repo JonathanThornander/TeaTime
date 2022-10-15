@@ -32,7 +32,7 @@ namespace Tea.Core.Expressions.Selectors
         {
             if (reference.Year == _year)
             {
-                return DateTime.MaxValue;
+                return Create(reference).AddYears(1);
             }
             else
             {
