@@ -9,10 +9,12 @@ namespace Tea.Core.Expressions.Selectors
     public class DayOfWeekSelector : SelectorExpression
     {
         private readonly DayOfWeek _dayOfWeek;
+        private readonly bool _negated;
 
         public DayOfWeekSelector(DayOfWeek dayOfWeek, bool negate = false) : base(negate)
         {
             _dayOfWeek = dayOfWeek;
+            _negated = negate;
         }
 
         public DayOfWeekSelector(int dayOfWeek, bool negate = false) : base(negate)
@@ -20,7 +22,11 @@ namespace Tea.Core.Expressions.Selectors
             _dayOfWeek = (DayOfWeek)dayOfWeek;
         }
 
-        internal override string GetSignature() => $"W:{(int)_dayOfWeek}";
+        internal override string GetSignature()
+        {
+            var prefix = _negated ? "!" : ""; 
+            return $"{prefix}W:{(int)_dayOfWeek}";
+        }
 
         protected override DateTime? GetNext(DateTime reference)
         {

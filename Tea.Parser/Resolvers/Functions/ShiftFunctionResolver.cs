@@ -5,6 +5,7 @@ using System.Text;
 using Tea.Core.Expressions;
 using Tea.Core.Expressions.Functional;
 using Tea.Core.Expressions.Functional.Shifters;
+using Tea.Parser.Exceptions;
 using Tea.Parser.Utils;
 
 namespace Tea.Parser.Resolvers.Functions
@@ -14,6 +15,8 @@ namespace Tea.Parser.Resolvers.Functions
         public override Expression Resolve(ParsedExpression parsedExpression)
         {
             var parsedFunction = (ParsedFunction)parsedExpression;
+
+            if (parsedFunction.Parameters.Length != 2) throw new TeaParserException("SHIFT-function requires exactly 2 parameters");
 
             var expression = ParseExpressions(parsedFunction);
             var shiftValue = ParseShiftValue(parsedFunction);

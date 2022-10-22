@@ -84,7 +84,7 @@ namespace Tea.Parser.Resolvers.Selectors
                     return 11;
                 case "12":
                 case "DEC":
-                case "DECeMBER":
+                case "DECEMBER":
                     return 12;
                 default:
                     throw new Exception($"The month '{name}' was not recognized");

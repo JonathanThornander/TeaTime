@@ -1,4 +1,5 @@
 ﻿using System;
+using Tea.Parser.Exceptions;
 using Tea.Parser.Resolvers.Constants;
 using Tea.Parser.Resolvers.Functions;
 using Tea.Parser.Resolvers.Selectors;
@@ -17,7 +18,8 @@ namespace Tea.Parser
                 ParsedSelector parsedSelector => GetSelectorResolver(parsedSelector),
                 ParsedFunction parsedFunction => GetFunctionResolver(parsedFunction),
                 ParsedConstant parsedConstant => GetConstnatResolver(parsedConstant),
-                _ => throw new Exception(),
+
+                _ => throw new TeaParserException(),
             };
         }
 
@@ -28,7 +30,8 @@ namespace Tea.Parser
                 "OR" => new OrFunctionResolver(),
                 "AND" => new AndFunctionResolver(),
                 "SHIFT" => new ShiftFunctionResolver(),
-                _ => throw new ArgumentException($"Could not find any resolver for function '{parsedFunction.Name}'"),
+
+                _ => throw new TeaParserException($"Could not find any resolver for function '{parsedFunction.Name}'"),
             };
         }
 
@@ -63,7 +66,7 @@ namespace Tea.Parser
                 "4W" => new NthNextWeekdayResolver(),
                 "5W" => new NthNextWeekdayResolver(),
 
-                _ => throw new ArgumentException($"Could not find any resolver for selector '{parsedSelector.Name}'"),
+                _ => throw new TeaParserException($"Could not find any resolver for selector '{parsedSelector.Name}'"),
             };
         }
 
@@ -74,7 +77,7 @@ namespace Tea.Parser
                 "LEAPYEAR" => new LeapYearConstantResolver(),
                 "HH" => new WholeHourConstantResolver(),
 
-                _ => throw new ArgumentException($"Could not find any resolver for constant '{parsedConstant.Name}'"),
+                _ => throw new TeaParserException($"Could not find any resolver for constant '{parsedConstant.Name}'"),
             };
         }
     }

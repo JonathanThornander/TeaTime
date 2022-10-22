@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Tea.Parser.Exceptions;
 
 namespace Tea.Parser.Utils
 {
@@ -10,21 +11,44 @@ namespace Tea.Parser.Utils
     {
         public ParsedExpression Parse(string data)
         {
-            ExpressionType type = GetTokenType(data);
+            try
+            {
+                ValidateParenthesis(data);
 
-            if (type is ExpressionType.Function)
-            {
-                return ParseFunction(data);
-            }
-            else if (type is ExpressionType.Selector)
-            {
-                return ParseSelector(data);
-            }
-            else
-            {
-                return ParseConstant(data);
-            }
+                ExpressionType type = GetTokenType(data);
 
+                if (type is ExpressionType.Function)
+                {
+                    return ParseFunction(data);
+                }
+                else if (type is ExpressionType.Selector)
+                {
+                    return ParseSelector(data);
+                }
+                else
+                {
+                    return ParseConstant(data);
+                }
+            }
+            catch (Exception ex)
+            {
+                if (ex is TeaParserException)
+                {
+                    throw new TeaParserException($"The expression is invalid. Could not parse '{data}'", ex);
+                }
+                throw new TeaParserException($"The expression is invalid. Could not parse '{data}'");
+            }
+        }
+
+        private static void ValidateParenthesis(string data)
+        {
+            var numOpen = data.Count(c => c == '(');
+            var numClosed = data.Count(c => c == ')');
+
+            if (numClosed != numOpen)
+            {
+                throw new TeaParserException($"Inconsistent parenthesis. Found {numOpen} opening and {numClosed} closing parenthesis");
+            }
         }
 
         private static ParsedConstant ParseConstant(string data)
@@ -38,7 +62,7 @@ namespace Tea.Parser.Utils
         private static ParsedSelector ParseSelector(string data)
         {
             var negate = false;
-            var name = "";
+            var name = string.Empty;
 
             var beforeColon = data.Split(':')[0];
 
@@ -51,6 +75,8 @@ namespace Tea.Parser.Utils
             {
                 name = beforeColon;
             }
+
+            if (string.IsNullOrWhiteSpace(name)) throw new TeaParserException("The selector name is empty");
 
             var parameter = data.Split(':')[1];
 
@@ -66,6 +92,7 @@ namespace Tea.Parser.Utils
         {
             var name = data.Split('(')[0];
 
+            if (string.IsNullOrWhiteSpace(name)) throw new TeaParserException($"No name provided for function '{data}'");
 
             var openingParenthesis = data.IndexOf('(') + 1;
             var closingParenthesis = data.LastIndexOf(')');

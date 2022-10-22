@@ -117,5 +117,98 @@ namespace TeaTime.Tests.Selectors.NthWeekday
             Assert.Contains(DateTime.Parse("2024-08-03"), ocus);
             Assert.Contains(DateTime.Parse("2024-11-02"), ocus);
         }
+
+        [Fact]
+        public void Negate_Last_1th_Saturday_WholeYear2024_Returns_4_Ocus()
+        {
+            TeaTimeParser parser = new TeaTimeParser();
+            DateTime start = DateTime.Parse("2024-01-01");
+            DateTime end = DateTime.Parse("2025-01-01");
+
+            var input = "!-1W:Saturday HH:0 MM:0 SS:0";
+
+            // Act
+            var tea = parser.Parse(input);
+            var ocus = tea.GetBetween(start, end);
+            var count = ocus.Count();
+
+            // Assert
+            Assert.Equal(366 - 12, count);
+        }
+
+        [Fact]
+        public void Negate_Last_2th_Saturday_WholeYear2024_Returns_4_Ocus()
+        {
+            TeaTimeParser parser = new TeaTimeParser();
+            DateTime start = DateTime.Parse("2024-01-01");
+            DateTime end = DateTime.Parse("2025-01-01");
+
+            var input = "!-2W:Saturday HH:0 MM:0 SS:0";
+
+            // Act
+            var tea = parser.Parse(input);
+            var ocus = tea.GetBetween(start, end);
+            var count = ocus.Count();
+
+            // Assert
+            Assert.Equal(366-12, count);
+        }
+
+        [Fact]
+        public void Negate_Last_3th_Saturday_WholeYear2024_Returns_4_Ocus()
+        {
+            TeaTimeParser parser = new TeaTimeParser();
+            DateTime start = DateTime.Parse("2024-01-01");
+            DateTime end = DateTime.Parse("2025-01-01");
+
+            var input = "!-3W:Saturday HH:0 MM:0 SS:0";
+
+            // Act
+            var tea = parser.Parse(input);
+            var ocus = tea.GetBetween(start, end);
+            var count = ocus.Count();
+
+            // Assert
+            Assert.Equal(366 - 12, count);
+        }
+
+        [Fact]
+        public void Negate_Last_4th_Saturday_WholeYear2024_Returns_12_Ocus()
+        {
+            TeaTimeParser parser = new TeaTimeParser();
+            DateTime start = DateTime.Parse("2024-01-01");
+            DateTime end = DateTime.Parse("2025-01-01");
+
+            var input = "!-4W:Saturday HH:0 MM:0 SS:0";
+
+            // Act
+            var tea = parser.Parse(input);
+            var ocus = tea.GetBetween(start, end);
+            var count = ocus.Count();
+
+            // Assert
+            Assert.Equal(366 - 12, count);
+        }
+
+        /// <summary>
+        /// Special case. Only 4 months of year 2024 have a fifth saturday
+        /// </summary>
+        [Fact]
+        public void Negate_Last_5th_Saturday_WholeYear2024_Returns_4_Ocus()
+        {
+            TeaTimeParser parser = new TeaTimeParser();
+            DateTime start = DateTime.Parse("2024-01-01");
+            DateTime end = DateTime.Parse("2025-01-01");
+
+            var input = "!-5W:Saturday HH:0 MM:0 SS:0";
+
+            // Act
+            var tea = parser.Parse(input);
+            var ocus = tea.GetBetween(start, end);
+            var count = ocus.Count();
+
+            // Assert
+            Assert.Equal(366 - 4, count);
+        }
     }
 }
