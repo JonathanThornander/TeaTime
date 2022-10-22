@@ -8,7 +8,7 @@ internal class Program
         TeaTimeParser schedule = new TeaTimeParser();
         DateTime reference = DateTime.Parse("2026-01-01");
 
-        var input = "OR(M:Mars M:June M:September M:December) SHIFT(1W:Monday HH:15 MM:0 SS:0)";
+        var input = "OR(M:Mars M:June M:September M:December) SHIFT(1W:Monday HH:15 MM:0 SS:0, -5, -5D)";
 
         var expression = schedule.Parse(input);
 

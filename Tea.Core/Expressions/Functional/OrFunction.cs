@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Linq;
 using System.Text;
+using static Tea.Core.LINQExtensions.DateTimeExtensions;
+using Tea.Core.LINQExtensions;
 
 namespace Tea.Core.Expressions.Functional
 {
@@ -39,9 +41,23 @@ namespace Tea.Core.Expressions.Functional
                 throw new Exception("At least one expression is required");
             }
 
-            return _expressions
-                .Select(exp => exp.NextOccurance(reference))
-                .Min();
+            while (true)
+            {
+                var traverseResult = _expressions
+                    .Select(exp => exp.NextOccurance(reference))
+                    .Traverse();
+
+                if (traverseResult is NullTraverseResult)
+                {
+                    return null;
+                }
+                if (traverseResult is AllEqualTraverseResult result)
+                {
+                    return result.Value;
+                }
+
+                return ((UnequalResult)traverseResult).Min;
+            }
         }
 
         internal override ValidationResult Validate()

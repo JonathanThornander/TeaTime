@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Linq;
+using Tea.Parser.Exceptions;
 using Tea.Parser.Resolvers.Selectors;
 
 namespace Tea.Parser.Utils
@@ -13,8 +14,14 @@ namespace Tea.Parser.Utils
                 var startSring = parameter.Split('-')[0];
                 var endString = parameter.Split('-')[1];
 
-                var start = int.Parse(startSring);
-                var end = int.Parse(endString);
+                if (int.TryParse(startSring, out int start) == false)
+                {
+                    throw new TeaParserException($"Expected start of index but got '{startSring}'");
+                }
+                if (int.TryParse(endString, out int end) == false)
+                {
+                    throw new TeaParserException($"Expected end of index but got '{endString}'");
+                }
 
                 return GetRange(start, end);
             }
@@ -23,13 +30,22 @@ namespace Tea.Parser.Utils
                 var startSring = parameter.Split('|')[0];
                 var endString = parameter.Split('|')[1];
 
-                var start = int.Parse(startSring);
-                var end = int.Parse(endString);
+                if (int.TryParse(startSring, out int start) == false)
+                {
+                    throw new TeaParserException($"Expected start of index but got '{startSring}'");
+                }
+                if (int.TryParse(endString, out int end) == false)
+                {
+                    throw new TeaParserException($"Expected end of index but got '{endString}'");
+                }
 
                 return new int[] { start, end };
             }
 
-            var value = int.Parse(parameter);
+            if (int.TryParse(parameter, out int value) == false)
+            {
+                throw new TeaParserException($"Expected integer but got '{parameter}'");
+            }
 
             return new int[] { value };
         }

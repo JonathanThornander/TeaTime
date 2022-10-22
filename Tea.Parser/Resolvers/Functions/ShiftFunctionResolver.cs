@@ -16,7 +16,7 @@ namespace Tea.Parser.Resolvers.Functions
         {
             var parsedFunction = (ParsedFunction)parsedExpression;
 
-            if (parsedFunction.Parameters.Length != 2) throw new TeaParserException("SHIFT-function requires exactly 2 parameters");
+            if (parsedFunction.Parameters.Length != 3) throw new TeaParserException("SHIFT-function requires exactly 3 parameters");
 
             var expression = ParseExpressions(parsedFunction);
             var shiftValue = ParseShiftValue(parsedFunction);
@@ -31,14 +31,17 @@ namespace Tea.Parser.Resolvers.Functions
                 "MM" => new ShiftMinutesFunction(expression, shiftValue),
                 "SS" => new ShiftSecondsFunction(expression, shiftValue),
 
-                _ => throw new ArgumentException("Shift type not supported"),
+                _ => throw new TeaParserException($"Shift type {shiftType} is not supported"),
             };
         }
 
         private static int ParseShiftValue(ParsedFunction parsedFunction)
         {
             var shiftValueString = parsedFunction.Parameters[1];
-            var shiftValue = int.Parse(shiftValueString);
+            if (int.TryParse(shiftValueString, out int shiftValue) == false)
+            {
+                throw new TeaParserException($"Expected shift value but got '{shiftValueString}'");
+            }
             return shiftValue;
         }
 

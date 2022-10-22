@@ -35,6 +35,7 @@ namespace Tea.Core.LINQExtensions
                     return new NullTraverseResult();
                 }
 
+                var min = (DateTime)enumerator.Current;
                 var max = (DateTime)enumerator.Current;
                 var allEqual = true;
 
@@ -52,8 +53,9 @@ namespace Tea.Core.LINQExtensions
                         max = current;
                         allEqual = false;
                     }
-                    else if (current < max)
+                    else if (current < min)
                     {
+                        min = current;
                         allEqual = false;
                     }
                 }
@@ -64,7 +66,7 @@ namespace Tea.Core.LINQExtensions
                 }
                 else
                 {
-                    return new UnequalResult() { Max = max };
+                    return new UnequalResult() { Max = max, Min = min };
                 }
             }
 
@@ -79,6 +81,8 @@ namespace Tea.Core.LINQExtensions
         public class UnequalResult : TraverseResult
         {
             public DateTime Max { get; set; }
+
+            public DateTime Min { get; set; }
         }
 
         public class AllEqualTraverseResult : TraverseResult
