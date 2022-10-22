@@ -64,7 +64,7 @@ namespace Tea.Core.Expressions.Selectors.Modular
             return _modValue - modResult;
         }
 
-        internal override DateTime Create(DateTime reference)
+        private DateTime Create(DateTime reference)
         {
             return new DateTime(reference.Year, 1, 1);
         }

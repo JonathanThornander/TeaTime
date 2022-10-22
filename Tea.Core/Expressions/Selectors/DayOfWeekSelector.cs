@@ -52,7 +52,7 @@ namespace Tea.Core.Expressions.Selectors
             return current;
         }
 
-        internal override DateTime Create(DateTime reference)
+        private DateTime Create(DateTime reference)
         {
             return new DateTime(reference.Year, reference.Month, reference.Day);
         }

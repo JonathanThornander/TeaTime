@@ -16,7 +16,7 @@ namespace Tea.Core.Expressions.Selectors.NthWeekday
             _dayOfWeek = dayOfWeek;
         }
 
-        internal override DateTime Create(DateTime reference)
+        protected override DateTime Create(DateTime reference)
         {
             var lastDayOfMont = new DateTime(reference.Year, reference.Month, DateTime.DaysInMonth(reference.Year, reference.Month));
             var lastWeekday = lastDayOfMont.Previous(_dayOfWeek);

@@ -36,11 +36,6 @@ namespace Tea.Core.Expressions.Functional
 
         protected override DateTime? GetNext(DateTime reference)
         {
-            if (_expressions.Length == 0)
-            {
-                throw new Exception("At least one expression is required");
-            }
-
             while (true)
             {
                 var traverseResult = _expressions
@@ -62,6 +57,11 @@ namespace Tea.Core.Expressions.Functional
 
         internal override ValidationResult Validate()
         {
+            if (_expressions.Length == 0)
+            {
+                return new ValidationResult(false, "At least one expression is required");
+            }
+
             var unvalidInnerExpressions = _expressions
                 .Select(exp => exp.Validate())
                 .Where(validationResult => validationResult.Valid == false)

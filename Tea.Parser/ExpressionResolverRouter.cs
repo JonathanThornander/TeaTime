@@ -1,6 +1,8 @@
 ﻿using System;
+using Tea.Core.Expressions.Selectors.Special;
 using Tea.Parser.Exceptions;
 using Tea.Parser.Resolvers.Constants;
+using Tea.Parser.Resolvers.Constants.Holidays;
 using Tea.Parser.Resolvers.Functions;
 using Tea.Parser.Resolvers.Selectors;
 using Tea.Parser.Resolvers.Selectors.Modular;
@@ -66,6 +68,8 @@ namespace Tea.Parser
                 "4W" => new NthNextWeekdayResolver(),
                 "5W" => new NthNextWeekdayResolver(),
 
+                "EASTER" => new EasterResolver(),
+
                 _ => throw new TeaParserException($"Could not find any resolver for selector '{parsedSelector.Name}'"),
             };
         }
@@ -76,6 +80,8 @@ namespace Tea.Parser
             {
                 "LEAPYEAR" => new LeapYearConstantResolver(),
                 "HH" => new WholeHourConstantResolver(),
+
+                "SWEHOL" => new SwedishHolidayConstantResolver(),
 
                 _ => throw new TeaParserException($"Could not find any resolver for constant '{parsedConstant.Name}'"),
             };

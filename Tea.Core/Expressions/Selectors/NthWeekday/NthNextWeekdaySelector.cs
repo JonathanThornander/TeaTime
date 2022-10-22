@@ -16,7 +16,7 @@ namespace Tea.Core.Expressions.Selectors.NthWeekday
             _dayOfWeek = dayOfWeek;
         }
 
-        internal override DateTime Create(DateTime reference)
+        protected override DateTime Create(DateTime reference)
         {
             var firstDayOfMonth = new DateTime(reference.Year, reference.Month, 1);
             var firstWeekday = firstDayOfMonth.Next(_dayOfWeek);

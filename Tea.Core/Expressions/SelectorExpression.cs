@@ -4,7 +4,7 @@ namespace Tea.Core.Expressions
 {
     public abstract class SelectorExpression : Expression
     {
-        private readonly bool _negate;
+        protected readonly bool _negate;
 
         protected SelectorExpression(bool negate)
         {
@@ -22,7 +22,5 @@ namespace Tea.Core.Expressions
         }
 
         protected abstract DateTime? GetNextNegate(DateTime reference);
-
-        internal abstract DateTime Create(DateTime reference);
     }
 }

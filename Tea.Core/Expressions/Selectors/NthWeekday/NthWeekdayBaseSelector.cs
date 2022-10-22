@@ -47,5 +47,7 @@ namespace Tea.Core.Expressions.Selectors.NthWeekday
 
             return reference;
         }
+
+        protected abstract DateTime Create(DateTime reference);
     }
 }
