@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Xunit;
+﻿using Xunit;
 
 namespace TeaTime.Tests.Selectors.NthWeekday
 {
@@ -151,7 +146,7 @@ namespace TeaTime.Tests.Selectors.NthWeekday
             var count = ocus.Count();
 
             // Assert
-            Assert.Equal(366-12, count);
+            Assert.Equal(366 - 12, count);
         }
 
         [Fact]

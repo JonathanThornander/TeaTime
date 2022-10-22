@@ -1,10 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using Tea.Core.Expressions;
 using Tea.Core.Expressions.Functional;
-using Tea.Core.Expressions.Selectors;
 using Tea.Core.Expressions.Selectors.NthWeekday;
 using Tea.Parser.Exceptions;
 using Tea.Parser.Utils;

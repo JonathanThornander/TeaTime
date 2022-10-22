@@ -1,5 +1,4 @@
-﻿using System;
-using System.Linq;
+﻿using System.Linq;
 using Tea.Core.Expressions;
 using Tea.Core.Expressions.Functional;
 using Tea.Core.Expressions.Selectors;
@@ -27,7 +26,7 @@ namespace Tea.Parser.Resolvers.Selectors
                 return new AndFunction(expressions);
             }
 
-            return  new OrFunction(expressions);
+            return new OrFunction(expressions);
         }
     }
 }

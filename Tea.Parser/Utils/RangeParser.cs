@@ -1,7 +1,5 @@
-﻿using System;
-using System.Linq;
+﻿using System.Linq;
 using Tea.Parser.Exceptions;
-using Tea.Parser.Resolvers.Selectors;
 
 namespace Tea.Parser.Utils
 {

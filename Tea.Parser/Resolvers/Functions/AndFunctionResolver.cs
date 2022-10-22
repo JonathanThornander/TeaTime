@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Linq;
-using System.Text;
+﻿using System.Linq;
 using Tea.Core.Expressions;
 using Tea.Core.Expressions.Functional;
 using Tea.Parser.Exceptions;
@@ -26,6 +22,6 @@ namespace Tea.Parser.Resolvers.Functions
             var expressions = expressionTokens.Select(token => TeaParser.Instance.Parse(token)).ToArray();
 
             return new AndFunction(expressions);
-        } 
+        }
     }
 }

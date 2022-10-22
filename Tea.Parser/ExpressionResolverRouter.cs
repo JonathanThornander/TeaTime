@@ -1,8 +1,5 @@
-﻿using System;
-using Tea.Core.Expressions.Selectors.Special;
-using Tea.Parser.Exceptions;
+﻿using Tea.Parser.Exceptions;
 using Tea.Parser.Resolvers.Constants;
-using Tea.Parser.Resolvers.Constants.Holidays;
 using Tea.Parser.Resolvers.Functions;
 using Tea.Parser.Resolvers.Selectors;
 using Tea.Parser.Resolvers.Selectors.Modular;
@@ -79,9 +76,15 @@ namespace Tea.Parser
             return parsedConstant.Name.ToUpperInvariant() switch
             {
                 "LEAPYEAR" => new LeapYearConstantResolver(),
-                "HH" => new WholeHourConstantResolver(),
 
-                "SWEHOL" => new SwedishHolidayConstantResolver(),
+                "MIDNIGHT" => new MidnightConstantResolver(),
+                "NOON" => new NoonConstantResolver(),
+
+                "Y" => new YearlyConstantResolver(),
+                "M" => new MonthlyConstantResolver(),
+                "D" => new DailyConstantResolver(),
+                "HH" => new HourlyConstantResolver(),
+                "MM" => new MinutelyConstantResolver(),
 
                 _ => throw new TeaParserException($"Could not find any resolver for constant '{parsedConstant.Name}'"),
             };

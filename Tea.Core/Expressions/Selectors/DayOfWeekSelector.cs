@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Tea.Core.Expressions.Selectors
 {
@@ -24,7 +20,7 @@ namespace Tea.Core.Expressions.Selectors
 
         internal override string GetSignature()
         {
-            var prefix = _negated ? "!" : ""; 
+            var prefix = _negated ? "!" : "";
             return $"{prefix}W:{(int)_dayOfWeek}";
         }
 

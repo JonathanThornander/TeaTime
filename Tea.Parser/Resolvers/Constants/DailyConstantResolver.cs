@@ -3,13 +3,13 @@ using Tea.Parser.Utils;
 
 namespace Tea.Parser.Resolvers.Constants
 {
-    internal class LeapYearConstantResolver : ExpressionResolver
+    internal class DailyConstantResolver : ExpressionResolver
     {
-        private const string LEAPYEAR = "OR(AND(Y%:4 !Y%:100) AND(Y%:4 Y%:100 Y%:400))";
+        private const string EXPRESSION = "AND(HH:0 MM:0 SS:0)";
 
         public override Expression Resolve(ParsedExpression parsedExpression)
         {
-            return TeaParser.Instance.Parse(LEAPYEAR);
+            return TeaParser.Instance.Parse(EXPRESSION);
         }
     }
 }

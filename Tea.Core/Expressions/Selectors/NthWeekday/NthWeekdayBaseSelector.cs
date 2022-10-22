@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using Tea.Core.LINQExtensions;
 
 namespace Tea.Core.Expressions.Selectors.NthWeekday
 {

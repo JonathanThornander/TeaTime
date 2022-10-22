@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Linq;
 using System.Text;
-using static Tea.Core.LINQExtensions.DateTimeExtensions;
 using Tea.Core.LINQExtensions;
+using static Tea.Core.LINQExtensions.DateTimeExtensions;
 
 namespace Tea.Core.Expressions.Functional
 {

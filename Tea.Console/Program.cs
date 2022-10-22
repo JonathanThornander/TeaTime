@@ -8,12 +8,12 @@ internal class Program
         TeaTimeParser schedule = new TeaTimeParser();
         DateTime reference = DateTime.Parse("2020-01-01");
 
-        var input = "SWEHOL HH:00 MM:0 SS:0";
+        var input = "LEAPYEAR Y";
 
         var expression = schedule.Parse(input);
 
         var stopWatch = Stopwatch.StartNew();
-        var next = expression.GetBetween(reference, reference.AddYears(1)).ToArray();
+        var next = expression.GetBetween(reference, reference.AddYears(10)).ToArray();
         stopWatch.Stop();
 
         foreach (var date in next)
