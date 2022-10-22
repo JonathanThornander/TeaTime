@@ -22,5 +22,7 @@ namespace Tea.Core.Expressions
         }
 
         protected abstract DateTime? GetNextNegate(DateTime reference);
+
+        internal abstract DateTime Create(DateTime reference);
     }
 }

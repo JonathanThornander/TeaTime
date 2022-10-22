@@ -21,8 +21,6 @@ namespace Tea.Parser.Resolvers.Functions
             var expressions = expressionTokens.Select(token => TeaParser.Instance.Parse(token)).ToArray();
 
             return new AndFunction(expressions);
-        }
-
-        
+        } 
     }
 }

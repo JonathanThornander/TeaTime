@@ -1,15 +1,12 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Xml.Linq;
-using Tea.Core.Expressions.Selectors;
 using Tea.Parser.Resolvers.Constants;
 using Tea.Parser.Resolvers.Functions;
 using Tea.Parser.Resolvers.Selectors;
 using Tea.Parser.Resolvers.Selectors.Modular;
+using Tea.Parser.Resolvers.Selectors.NthWeekday;
 using Tea.Parser.Utils;
 
-namespace Tea.Parser.Services
+namespace Tea.Parser
 {
     internal class ExpressionResolverRouter
     {
@@ -31,7 +28,6 @@ namespace Tea.Parser.Services
                 "OR" => new OrFunctionResolver(),
                 "AND" => new AndFunctionResolver(),
                 "SHIFT" => new ShiftFunctionResolver(),
-
                 _ => throw new ArgumentException($"Could not find any resolver for function '{parsedFunction.Name}'"),
             };
         }
@@ -47,7 +43,7 @@ namespace Tea.Parser.Services
                 "HH" => new HourOfDayResolver(),
                 "MM" => new MinuteOfHourResolver(),
                 "SS" => new SecondOfMinuteResolver(),
-                
+
                 "Y%" => new YearModResolver(),
                 "M%" => new MonthModResolver(),
                 "D%" => new DayModResolver(),
@@ -55,6 +51,17 @@ namespace Tea.Parser.Services
                 "MM%" => new MinuteModResolver(),
                 "SS%" => new SecondModResolver(),
 
+                "-5W" => new NthLastWeekdayResolver(),
+                "-4W" => new NthLastWeekdayResolver(),
+                "-3W" => new NthLastWeekdayResolver(),
+                "-2W" => new NthLastWeekdayResolver(),
+                "-1W" => new NthLastWeekdayResolver(),
+
+                "1W" => new NthNextWeekdayResolver(),
+                "2W" => new NthNextWeekdayResolver(),
+                "3W" => new NthNextWeekdayResolver(),
+                "4W" => new NthNextWeekdayResolver(),
+                "5W" => new NthNextWeekdayResolver(),
 
                 _ => throw new ArgumentException($"Could not find any resolver for selector '{parsedSelector.Name}'"),
             };
@@ -64,7 +71,7 @@ namespace Tea.Parser.Services
         {
             return parsedConstant.Name.ToUpperInvariant() switch
             {
-                "LYR" => new LeapYearConstantResolver(),
+                "LEAPYEAR" => new LeapYearConstantResolver(),
                 "HH" => new WholeHourConstantResolver(),
 
                 _ => throw new ArgumentException($"Could not find any resolver for constant '{parsedConstant.Name}'"),

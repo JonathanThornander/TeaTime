@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Tea.Parser
+namespace Tea.Parser.Utils
 {
     public class ExpressionParser
     {

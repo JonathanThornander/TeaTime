@@ -46,7 +46,7 @@ namespace Tea.Core.Expressions.Selectors
             return current;
         }
 
-        private static DateTime Create(DateTime reference)
+        internal override DateTime Create(DateTime reference)
         {
             return new DateTime(reference.Year, reference.Month, reference.Day);
         }

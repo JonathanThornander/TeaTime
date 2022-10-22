@@ -54,7 +54,7 @@ namespace Tea.Core.Expressions.Selectors
             return new ValidationResult(true);
         }
 
-        private DateTime Create(DateTime reference)
+        internal override DateTime Create(DateTime reference)
         {
             return new DateTime(_year, 1, 1);
         }

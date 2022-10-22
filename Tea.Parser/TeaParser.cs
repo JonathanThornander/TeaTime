@@ -1,13 +1,12 @@
 ﻿using System.Linq;
 using Tea.Core.Expressions;
-using Tea.Parser.Services;
 using Tea.Parser.Utils;
 
 namespace Tea.Parser
 {
     public class TeaParser
     {
-        private static TeaParser _instance = new TeaParser();
+        private static readonly TeaParser _instance = new TeaParser();
 
         private readonly ExpressionParser _parser = new ExpressionParser();
         private readonly ExpressionResolverRouter _router = new ExpressionResolverRouter();

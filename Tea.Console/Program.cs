@@ -1,10 +1,4 @@
 ﻿using System.Diagnostics;
-using Tea.Core;
-using Tea.Core.Expressions;
-using Tea.Core.Expressions.Functional;
-using Tea.Core.Expressions.Functional.Shifters;
-using Tea.Core.Expressions.Selectors;
-using Tea.Core.Expressions.Selectors.Modular;
 using TeaTime;
 
 internal class Program
@@ -12,9 +6,9 @@ internal class Program
     private static void Main(string[] args)
     {
         TeaTimeParser schedule = new TeaTimeParser();
-        DateTime reference = DateTime.Parse("2022-01-01");
+        DateTime reference = DateTime.Parse("2026-01-01");
 
-        var input = "D:1 HH:0 MM:0 SS:0";
+        var input = "!1W:Monday D:1 HH:0 MM:0 SS:0";
 
         var expression = schedule.Parse(input);
 
@@ -27,8 +21,7 @@ internal class Program
             Console.WriteLine(date.ToString("F"));
         }
 
+        Console.WriteLine(next.Length);
         Console.WriteLine(stopWatch.ElapsedMilliseconds);
-
-
     }
 }

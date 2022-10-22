@@ -4,9 +4,9 @@ using System.Text;
 
 namespace Tea.Parser.Utils
 {
-    internal class TokensParser
+    public class TokensParser
     {
-        internal static string[] ParseTokens(string teaExpressionString)
+        public static string[] ParseTokens(string teaExpressionString)
         {
             var tokens = new List<string>();
             var sb = new StringBuilder();

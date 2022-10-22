@@ -2,7 +2,7 @@
 using System.Linq;
 using System.Text;
 using Tea.Core.LINQExtensions;
-using static Tea.Core.LINQExtensions.DateTimeSequenceExtensions;
+using static Tea.Core.LINQExtensions.DateTimeExtensions;
 
 namespace Tea.Core.Expressions.Functional
 {
@@ -79,30 +79,6 @@ namespace Tea.Core.Expressions.Functional
 
                 return new ValidationResult(false, sb.ToString());
             }
-
-            //var duplicates = _expressions
-            //    .GroupBy(exp => exp.GetType())
-            //    .Where(group => group.Count() > 1)
-            //    .Select(x => x.Key)
-            //    .ToArray();
-
-            //if (duplicates.Any())
-            //{
-            //    StringBuilder sb = new StringBuilder();
-            //    sb.Append($"And function cannot contain multiple expressions of same type. The following expressions occured more than once: '");
-
-            //    foreach (var duplicate in duplicates)
-            //    {
-            //        sb.Append(duplicate.Name);
-            //        sb.Append(", ");
-            //    }
-
-            //    sb.Remove(sb.Length - 2, 2);
-            //    sb.Append("'");
-
-            //    return new ValidationResult(false, sb.ToString());
-            //}
-
 
             return new ValidationResult(true);
         }
