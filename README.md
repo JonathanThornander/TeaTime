@@ -2,6 +2,9 @@
 
 TeaTime is a .NET library for creating advanced patterns of recurring events using simple and human readable syntax. Its purpose is to offer what other tools like Cron cannot. Unlike related tools like Cron which is designed for low level scheduling i.g regularly running computer tasks, TeaTime is also designed to be used in real life scenarios.
 
+Download NuGet:
+https://www.nuget.org/packages/TeaTime/
+
 ## Examples
 
 ### Scheduling opening hours
@@ -167,4 +170,4 @@ Constants are pre-made expressions. Like any other expression, they can be neste
 | D        | Whole day    | Yields midnight                            |
 | HH       | Whole hour   | Yields every hour at minute 0 and second 0 |
 | MM       | Whole minute | Yields every minute at second 0            |
-| LEAPYEAR | Leap year    | Yields every second during leapyears       |
+| LEAPYEAR | Leap year    | Yields during leapyears                    |
