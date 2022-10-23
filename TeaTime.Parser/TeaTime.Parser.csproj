@@ -13,6 +13,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Tea.Core\TeaTime.Core.csproj" />
+    <ProjectReference Include="..\TeaTime.Core\TeaTime.Core.csproj" />
   </ItemGroup>
 
 </Project>
