@@ -63,7 +63,7 @@ Monday, 25 December 2000 20:00:00
 Monday, 25 December 2000 22:00:00
 ```
 
-### Relative dates
+### Scheduling relative dates
 The following example yields 30 days after orthodox easter at midnight every year
 
 ```CSHARP
@@ -94,11 +94,12 @@ Tuesday, 19 May 2009 00:00:00
 ```
 
 ### Scheduling payday
+The following example yields the 25th every month, or the friday before if the 25th occurs on a weekend (Normal swedish payday).
 
 ```CSHARP
 using TeaTime;
 
-var tea = "OR(AND(WEEKDAY D:25) AND(W:Friday D:24) AND(W:Friday D:23)) D";
+var tea = "OR(AND(WEEKDAY D:25) AND(W:Friday D:23-24)) D";
 
 var parser = new TeaTimeParser();
 var expression = parser.Parse(tea);
