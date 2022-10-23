@@ -9,9 +9,8 @@ internal class Program
         DateTime reference = DateTime.Parse("2020-01-01");
 
         var input = "OR(AND(W:Monday HH:10) AND(W:Wednesday HH:10)) HH";
-        var input2 = "AND(AND(!W:Monday !HH:10) AND(!W:Wednesday !HH:10)) HH";
 
-        var expression = schedule.Parse(input2);
+        var expression = schedule.Parse(input);
 
         var stopWatch = Stopwatch.StartNew();
         var next = expression.GetBetween(reference, reference.AddDays(7)).ToArray();
