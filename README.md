@@ -47,24 +47,24 @@ Selectors is used to express a single rule for occuring events. Selectors concis
 
 ### Functions
 Functions transforms an expression using rules. A function conciscts of a name and one or more parameter depending on the type of the function. 
-| Function | Name  | Annotation | Example                   | Example meening                      |
-|----------|-------|------------|---------------------------|--------------------------------------|
-| OR       | Or    |            | OR(D:15 D:25)             | Either day 15 or day 25 of the month |
-| AND      | And   |            | AND(D:13 W:Friday)        | The 13th, but only when it's friday  |
-| SHIFT    | Shift |            | SHIFT(M:12 D:25 D, -6, M) | 6 months before 25th of december     |
+| Function | Name  | Example                   | Example meening                      |
+|----------|-------|---------------------------|--------------------------------------|
+| OR       | Or    | OR(D:15 D:25)             | Either day 15 or day 25 of the month |
+| AND      | And   | AND(D:13 W:Friday)        | The 13th, but only when it's friday  |
+| SHIFT    | Shift | SHIFT(M:12 D:25 D, -6, M) | 6 months before 25th of december     |
 
 ### Constants
 Constants are pre-made expressions. Like any other expression, they can be nested inside of other expressions. Constants serves two purposes:
 1. Reduces the length of the expression
 2. Reduces the need of writing complex expressions like easter (dependent on the moon-phase)
 
-| Constant | Name         | Annotation | Constant meening                           |
-|----------|--------------|------------|--------------------------------------------|
-| WEEKDAY  | Weekday      |            | Yields monday through friday               |
-| WEEKEND  | Weekend      |            | Yields saturdays and sundays               |
-| Y        | Whoe year    |            | Yields january 1st every year at midnight  |
-| M        | Whole month  |            | Yields the first every month at midnight   |
-| D        | Whole day    |            | Yields midnight                            |
-| HH       | Whole hour   |            | Yields every hour at minute 0 and second 0 |
-| MM       | Whole minute |            | Yields every minute at second 0            |
-| LEAPYEAR | Leap year    |            | Yields every second during leapyears       |
+| Constant | Name         | Constant meening                           |
+|----------|--------------|--------------------------------------------|
+| WEEKDAY  | Weekday      | Yields monday through friday               |
+| WEEKEND  | Weekend      | Yields saturdays and sundays               |
+| Y        | Whoe year    | Yields january 1st every year at midnight  |
+| M        | Whole month  | Yields the first every month at midnight   |
+| D        | Whole day    | Yields midnight                            |
+| HH       | Whole hour   | Yields every hour at minute 0 and second 0 |
+| MM       | Whole minute | Yields every minute at second 0            |
+| LEAPYEAR | Leap year    | Yields every second during leapyears       |
