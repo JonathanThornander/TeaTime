@@ -8,7 +8,7 @@ internal class Program
         TeaTimeParser schedule = new TeaTimeParser();
         DateTime reference = DateTime.Parse("2020-01-01");
 
-        var input = "OR(AND(W:Monday HH:10) AND(W:Wednesday HH:10)) HH";
+        var input = "OR(AND(W:Monday HH:10) AND(W:Wednesday HH:10)) MM";
 
         var expression = schedule.Parse(input);
 
