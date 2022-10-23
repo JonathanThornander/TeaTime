@@ -16,7 +16,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Tea.Parser\Tea.Parser.csproj" />
+    <ProjectReference Include="..\Tea.Parser\TeaTime.Parser.csproj" />
   </ItemGroup>
 
 </Project>

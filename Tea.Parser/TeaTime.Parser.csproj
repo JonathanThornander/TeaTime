@@ -12,7 +12,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Tea.Core\Tea.Core.csproj" />
+    <ProjectReference Include="..\Tea.Core\TeaTime.Core.csproj" />
   </ItemGroup>
 
 </Project>

@@ -3,13 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.3.32922.545
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tea.Core", "Tea.Core\Tea.Core.csproj", "{C5A8DD02-B47B-4347-B0A4-2CD17E7A17F9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TeaTime.Core", "Tea.Core\TeaTime.Core.csproj", "{C5A8DD02-B47B-4347-B0A4-2CD17E7A17F9}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tea.Console", "Tea.Console\Tea.Console.csproj", "{2682FE44-BAC4-4B68-9779-34DB07F2B37D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TeaTime.Console", "Tea.Console\TeaTime.Console.csproj", "{2682FE44-BAC4-4B68-9779-34DB07F2B37D}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TeaTime.Tests", "Tea.Tests\TeaTime.Tests.csproj", "{AAE76D1B-C2F8-48D4-BC0C-1ABE242448F7}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tea.Parser", "Tea.Parser\Tea.Parser.csproj", "{13CF5331-91D5-4882-9446-889F3A60C299}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TeaTime.Parser", "Tea.Parser\TeaTime.Parser.csproj", "{13CF5331-91D5-4882-9446-889F3A60C299}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TeaTime", "TeaTime\TeaTime.csproj", "{FFAC7C25-1CC8-47CC-BCC7-DCF36FABAD2F}"
 EndProject
