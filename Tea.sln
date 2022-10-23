@@ -11,8 +11,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TeaTime.Parser", "TeaTime.P
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TeaTime", "TeaTime\TeaTime.csproj", "{FFAC7C25-1CC8-47CC-BCC7-DCF36FABAD2F}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TeaTime.Console", "TeaTime.Console\TeaTime.Console.csproj", "{5ED33BD7-9B8C-4081-BA92-E79E56DBB4DF}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -35,10 +33,6 @@ Global
 		{FFAC7C25-1CC8-47CC-BCC7-DCF36FABAD2F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FFAC7C25-1CC8-47CC-BCC7-DCF36FABAD2F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FFAC7C25-1CC8-47CC-BCC7-DCF36FABAD2F}.Release|Any CPU.Build.0 = Release|Any CPU
-		{5ED33BD7-9B8C-4081-BA92-E79E56DBB4DF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{5ED33BD7-9B8C-4081-BA92-E79E56DBB4DF}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{5ED33BD7-9B8C-4081-BA92-E79E56DBB4DF}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{5ED33BD7-9B8C-4081-BA92-E79E56DBB4DF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
