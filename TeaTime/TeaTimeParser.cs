@@ -1,6 +1,8 @@
 ﻿using System;
 using Tea.Core.Expressions;
+using Tea.Core.Expressions.Functional;
 using Tea.Parser;
+using TeaTime.Core.Expressions;
 
 namespace TeaTime
 {
@@ -8,6 +10,32 @@ namespace TeaTime
     {
         private readonly TeaParser _parser = new TeaParser();
 
+        /// <summary>
+        /// Parses a TeaExpression. A return value indicates whether the conversion succeeded
+        /// </summary>
+        /// <param name="parsed"></param>
+        /// <param name="expression"></param>
+        /// <returns></returns>
+        public bool TryParse(out Expression parsed, string expression)
+        {
+            try
+            {
+                parsed = Parse(expression);
+                return true;
+            }
+            catch
+            {
+                parsed = new NullExpression();
+                return false;
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="expression"></param>
+        /// <returns></returns>
+        /// <exception cref="TeaTimeException"></exception>
         public Expression Parse(string expression)
         {
             var input = $"AND({expression})";
@@ -20,7 +48,6 @@ namespace TeaTime
             {
                 throw new TeaTimeException($"Failed to parse expression: {ex.Message}", ex);
             }
-
         }
 
     }
