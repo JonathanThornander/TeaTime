@@ -3,6 +3,12 @@
   <PropertyGroup>
     <TargetFramework>netstandard2.1</TargetFramework>
     <Nullable>enable</Nullable>
+    <Description>Contains tools for parsing TeaTime expressions</Description>
+    <Copyright>Jonathan Thornander</Copyright>
+    <Authors>Jonathan Thornander</Authors>
+    <PackageProjectUrl>https://github.com/JonathanThornander/TeaTime</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/JonathanThornander/TeaTime</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
   </PropertyGroup>
 
   <ItemGroup>

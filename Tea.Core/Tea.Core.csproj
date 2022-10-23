@@ -3,6 +3,13 @@
   <PropertyGroup>
     <TargetFramework>netstandard2.1</TargetFramework>
     <Nullable>enable</Nullable>
+    <PackageProjectUrl>https://github.com/JonathanThornander/TeaTime</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/JonathanThornander/TeaTime</RepositoryUrl>
+    <Authors>Jonathan Thornander</Authors>
+    <Title>Tea.Core</Title>
+    <Description>Contains the fundamentals for construction TeaTime expressions</Description>
+    <Copyright>Jonathan Thornander</Copyright>
+    <RepositoryType>git</RepositoryType>
   </PropertyGroup>
 
 </Project>
