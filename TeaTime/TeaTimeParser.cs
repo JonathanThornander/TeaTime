@@ -12,15 +12,13 @@ namespace TeaTime
         {
             var input = $"AND({expression})";
 
-            return _parser.Parse(input);
-
             try
             {
                 return _parser.Parse(input);
             }
             catch (Exception ex)
             {
-                throw new TeaTimeExpression($"Failed to parse expression: {ex.Message}", ex);
+                throw new TeaTimeException($"Failed to parse expression: {ex.Message}", ex);
             }
 
         }
