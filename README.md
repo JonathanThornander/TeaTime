@@ -57,6 +57,7 @@ Functions transforms an expression using rules. A function conciscts of a name a
 Constants are pre-made expressions. Like any other expression, they can be nested inside of other expressions. Constants serves two purposes:
 1. Reduces the length of the expression
 2. Reduces the need of writing complex expressions like easter (dependent on the moon-phase)
+
 | Constant | Name         | Annotation | Constant meening                           |
 |----------|--------------|------------|--------------------------------------------|
 | WEEKDAY  | Weekday      |            | Yields monday through friday               |
