@@ -12,6 +12,7 @@
     <RepositoryType>git</RepositoryType>
     <PackageTags>schedule; reccuring events; cron; crontab; tea; teatime;</PackageTags>
     <PackageReleaseNotes>Initial version</PackageReleaseNotes>
+    <Version>1.0.1</Version>
   </PropertyGroup>
 
   <ItemGroup>
