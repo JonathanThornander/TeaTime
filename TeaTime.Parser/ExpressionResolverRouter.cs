@@ -5,6 +5,7 @@ using Tea.Parser.Resolvers.Selectors;
 using Tea.Parser.Resolvers.Selectors.Modular;
 using Tea.Parser.Resolvers.Selectors.NthWeekday;
 using Tea.Parser.Utils;
+using TeaTime.Parser.Resolvers.Constants;
 
 namespace Tea.Parser
 {
@@ -79,6 +80,9 @@ namespace Tea.Parser
 
                 "MIDNIGHT" => new MidnightConstantResolver(),
                 "NOON" => new NoonConstantResolver(),
+
+                "WEEKDAY" => new WeekdayConstantResolver(),
+                "WEEKEND" => new WeekendConstantResolver(),
 
                 "Y" => new YearlyConstantResolver(),
                 "M" => new MonthlyConstantResolver(),

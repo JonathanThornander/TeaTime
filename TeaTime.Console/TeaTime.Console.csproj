@@ -8,7 +8,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Tea.Core\TeaTime.Core.csproj" />
     <ProjectReference Include="..\TeaTime\TeaTime.csproj" />
   </ItemGroup>
 
