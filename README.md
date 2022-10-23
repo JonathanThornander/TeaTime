@@ -34,6 +34,39 @@ Thursday, 6 January 2000 08:00:00
 Friday, 7 January 2000 08:00:00
 ```
 
+
+### Scheduling payday
+The following example yields the 25th every month, or the friday before if the 25th occurs on a weekend (Normal swedish payday).
+
+```CSHARP
+using TeaTime;
+
+var tea = "OR(AND(WEEKDAY D:25) AND(W:Friday D:23-24)) D";
+
+var parser = new TeaTimeParser();
+var expression = parser.Parse(tea);
+
+foreach (var date in expression.GetBetween(DateTime.Parse("2000-01-01"), DateTime.Parse("2001-01-01")))
+{
+    Console.WriteLine(date.ToString("F"));
+}
+```
+Outputs:
+```
+Tuesday, 25 January 2000 00:00:00
+Friday, 25 February 2000 00:00:00
+Friday, 24 March 2000 00:00:00
+Tuesday, 25 April 2000 00:00:00
+Thursday, 25 May 2000 00:00:00
+Friday, 23 June 2000 00:00:00
+Tuesday, 25 July 2000 00:00:00
+Friday, 25 August 2000 00:00:00
+Monday, 25 September 2000 00:00:00
+Wednesday, 25 October 2000 00:00:00
+Friday, 24 November 2000 00:00:00
+Monday, 25 December 2000 00:00:00
+```
+
 ### Scheduling holidays
 The following TeaExpression yields every second full hour during every 25th of december.
 
@@ -94,38 +127,6 @@ Tuesday, 23 May 2006 00:00:00
 Tuesday, 8 May 2007 00:00:00
 Tuesday, 27 May 2008 00:00:00
 Tuesday, 19 May 2009 00:00:00
-```
-
-### Scheduling payday
-The following example yields the 25th every month, or the friday before if the 25th occurs on a weekend (Normal swedish payday).
-
-```CSHARP
-using TeaTime;
-
-var tea = "OR(AND(WEEKDAY D:25) AND(W:Friday D:23-24)) D";
-
-var parser = new TeaTimeParser();
-var expression = parser.Parse(tea);
-
-foreach (var date in expression.GetBetween(DateTime.Parse("2000-01-01"), DateTime.Parse("2001-01-01")))
-{
-    Console.WriteLine(date.ToString("F"));
-}
-```
-Outputs:
-```
-Tuesday, 25 January 2000 00:00:00
-Friday, 25 February 2000 00:00:00
-Friday, 24 March 2000 00:00:00
-Tuesday, 25 April 2000 00:00:00
-Thursday, 25 May 2000 00:00:00
-Friday, 23 June 2000 00:00:00
-Tuesday, 25 July 2000 00:00:00
-Friday, 25 August 2000 00:00:00
-Monday, 25 September 2000 00:00:00
-Wednesday, 25 October 2000 00:00:00
-Friday, 24 November 2000 00:00:00
-Monday, 25 December 2000 00:00:00
 ```
 
 ## Syntax
