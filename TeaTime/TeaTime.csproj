@@ -3,6 +3,8 @@
   <PropertyGroup>
     <TargetFramework>netstandard2.1</TargetFramework>
     <Nullable>enable</Nullable>
+    <Title>TeaTime</Title>
+    <Authors>Jonathan Thornander</Authors>
   </PropertyGroup>
 
   <ItemGroup>
