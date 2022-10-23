@@ -148,7 +148,7 @@ Selectors are the fundamentals of an TeaTime expression. They are used to expres
 Functions transforms an expression using rules. A function conciscts of a name and one or more parameter depending on the type of the function. 
 | Function | Name  | Example                   | Example meening                      |
 |----------|-------|---------------------------|--------------------------------------|
-| OR       | Or    | OR(D:15 D:25)             | Either day 15 or day 25 of the month |
+| OR       | Or    | OR(AND(D:15) AND(D:25))   | Either day 15 or day 25 of the month |
 | AND      | And   | AND(D:13 W:Friday)        | The 13th, but only when it's friday  |
 | SHIFT    | Shift | SHIFT(M:12 D:25 D, -6, M) | 6 months before 25th of december     |
 
