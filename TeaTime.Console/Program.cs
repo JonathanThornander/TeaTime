@@ -1,4 +1,5 @@
 ﻿using System.Diagnostics;
+using Tea.Core.Expressions;
 using TeaTime;
 
 internal class Program
@@ -8,9 +9,9 @@ internal class Program
         TeaTimeParser schedule = new TeaTimeParser();
         DateTime reference = DateTime.Parse("2020-01-01");
 
-        var input = "OR(AND(W:Monday HH:10) AND(W:Wednesday HH:10)) MM";
+        var input = "OR(AND(W:Monday HH:10) AND()W:Wednesday HH:10)) MM";
 
-        var expression = schedule.Parse(input);
+        var couldParse = schedule.TryParse(out Expression expression, input);
 
         var stopWatch = Stopwatch.StartNew();
         var next = expression.GetBetween(reference, reference.AddDays(7)).ToArray();
