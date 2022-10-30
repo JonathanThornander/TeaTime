@@ -1,9 +1,12 @@
-﻿using Tea.Core.Expressions;
-using Tea.Parser.Utils;
+﻿using System.Runtime.CompilerServices;
+using TeaTime.Core.Expressions;
+using TeaTime.Parser.Utils;
 
-namespace Tea.Parser
+[assembly: InternalsVisibleTo("TeaTime")]
+
+namespace TeaTime.Parser
 {
-    public class TeaParser
+    internal class TeaParser
     {
         private static readonly TeaParser _instance = new TeaParser();
 

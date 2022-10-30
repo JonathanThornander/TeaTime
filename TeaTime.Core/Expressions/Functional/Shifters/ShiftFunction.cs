@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Text;
 
-namespace Tea.Core.Expressions.Functional.Shifters
+namespace TeaTime.Core.Expressions.Functional.Shifters
 {
     public abstract class ShiftFunction : Expression
     {

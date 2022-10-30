@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Linq;
 using System.Text;
-using Tea.Core.LINQExtensions;
-using static Tea.Core.LINQExtensions.DateTimeExtensions;
+using TeaTime.Core.Extensions;
+using static TeaTime.Core.Extensions.DateTimeExtensions;
 
-namespace Tea.Core.Expressions.Functional
+namespace TeaTime.Core.Expressions.Functional
 {
     public class OrFunction : Expression
     {

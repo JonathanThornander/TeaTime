@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using Tea.Core.Exceptions;
+using TeaTime.Core.Exceptions;
 
-namespace Tea.Core.Expressions
+namespace TeaTime.Core.Expressions
 {
     public abstract class Expression
     {

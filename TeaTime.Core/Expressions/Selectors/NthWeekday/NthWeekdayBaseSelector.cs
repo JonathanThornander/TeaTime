@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Tea.Core.Expressions.Selectors.NthWeekday
+namespace TeaTime.Core.Expressions.Selectors.NthWeekday
 {
     public abstract class NthWeekdayBaseSelector : SelectorExpression
     {

@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Text;
 
-namespace Tea.Parser.Utils
+namespace TeaTime.Parser.Utils
 {
     public class TokensParser
     {

@@ -1,7 +1,7 @@
 ﻿using System.Linq;
-using Tea.Parser.Exceptions;
+using TeaTime.Parser.Exceptions;
 
-namespace Tea.Parser.Utils
+namespace TeaTime.Parser.Utils
 {
     internal class RangeParser
     {

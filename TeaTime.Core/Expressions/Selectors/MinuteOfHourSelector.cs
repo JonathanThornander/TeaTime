@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Tea.Core.Expressions.Selectors
+namespace TeaTime.Core.Expressions.Selectors
 {
     public class MinuteOfHourSelector : SelectorExpression
     {

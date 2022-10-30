@@ -1,10 +1,10 @@
 ﻿using System.Linq;
-using Tea.Core.Expressions;
-using Tea.Core.Expressions.Functional;
-using Tea.Core.Expressions.Selectors;
-using Tea.Parser.Utils;
+using TeaTime.Core.Expressions;
+using TeaTime.Core.Expressions.Functional;
+using TeaTime.Core.Expressions.Selectors;
+using TeaTime.Parser.Utils;
 
-namespace Tea.Parser.Resolvers.Selectors
+namespace TeaTime.Parser.Resolvers.Selectors
 {
     internal class HourOfDayResolver : ExpressionResolver
     {

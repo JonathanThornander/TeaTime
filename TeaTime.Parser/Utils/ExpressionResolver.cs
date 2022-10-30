@@ -1,6 +1,6 @@
-﻿using Tea.Core.Expressions;
+﻿using TeaTime.Core.Expressions;
 
-namespace Tea.Parser.Utils
+namespace TeaTime.Parser.Utils
 {
     public abstract class ExpressionResolver
     {

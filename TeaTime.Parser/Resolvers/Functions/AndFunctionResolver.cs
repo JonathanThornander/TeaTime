@@ -1,10 +1,10 @@
 ﻿using System.Linq;
-using Tea.Core.Expressions;
-using Tea.Core.Expressions.Functional;
-using Tea.Parser.Exceptions;
-using Tea.Parser.Utils;
+using TeaTime.Core.Expressions;
+using TeaTime.Core.Expressions.Functional;
+using TeaTime.Parser.Exceptions;
+using TeaTime.Parser.Utils;
 
-namespace Tea.Parser.Resolvers.Functions
+namespace TeaTime.Parser.Resolvers.Functions
 {
     public class AndFunctionResolver : ExpressionResolver
     {

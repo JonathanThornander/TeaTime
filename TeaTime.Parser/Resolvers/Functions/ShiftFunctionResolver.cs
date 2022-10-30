@@ -1,12 +1,12 @@
 ﻿using System;
 using System.Linq;
-using Tea.Core.Expressions;
-using Tea.Core.Expressions.Functional;
-using Tea.Core.Expressions.Functional.Shifters;
-using Tea.Parser.Exceptions;
-using Tea.Parser.Utils;
+using TeaTime.Core.Expressions;
+using TeaTime.Core.Expressions.Functional;
+using TeaTime.Core.Expressions.Functional.Shifters;
+using TeaTime.Parser.Exceptions;
+using TeaTime.Parser.Utils;
 
-namespace Tea.Parser.Resolvers.Functions
+namespace TeaTime.Parser.Resolvers.Functions
 {
     internal class ShiftFunctionResolver : ExpressionResolver
     {

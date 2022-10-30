@@ -1,10 +1,10 @@
 ﻿using System.Linq;
-using Tea.Core.Expressions;
-using Tea.Core.Expressions.Functional;
-using Tea.Core.Expressions.Selectors.Modular;
-using Tea.Parser.Utils;
+using TeaTime.Core.Expressions;
+using TeaTime.Core.Expressions.Functional;
+using TeaTime.Core.Expressions.Selectors.Modular;
+using TeaTime.Parser.Utils;
 
-namespace Tea.Parser.Resolvers.Selectors.Modular
+namespace TeaTime.Parser.Resolvers.Selectors.Modular
 {
     internal class SecondModResolver : ExpressionResolver
     {

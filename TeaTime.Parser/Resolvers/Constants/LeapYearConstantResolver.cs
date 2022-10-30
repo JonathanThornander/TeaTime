@@ -1,7 +1,7 @@
-﻿using Tea.Core.Expressions;
-using Tea.Parser.Utils;
+﻿using TeaTime.Core.Expressions;
+using TeaTime.Parser.Utils;
 
-namespace Tea.Parser.Resolvers.Constants
+namespace TeaTime.Parser.Resolvers.Constants
 {
     internal class LeapYearConstantResolver : ExpressionResolver
     {

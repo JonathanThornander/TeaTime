@@ -1,9 +1,9 @@
-﻿using Tea.Core.Expressions;
-using Tea.Core.Expressions.Selectors.Special;
-using Tea.Parser.Exceptions;
-using Tea.Parser.Utils;
+﻿using TeaTime.Core.Expressions;
+using TeaTime.Core.Expressions.Selectors.Special;
+using TeaTime.Parser.Exceptions;
+using TeaTime.Parser.Utils;
 
-namespace Tea.Parser.Resolvers.Selectors
+namespace TeaTime.Parser.Resolvers.Selectors
 {
     internal class EasterResolver : ExpressionResolver
     {

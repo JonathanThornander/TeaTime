@@ -1,7 +1,6 @@
-﻿using TeaTime;
-using Xunit;
+﻿using Xunit;
 
-namespace Tea.Tests.CompleteFlow
+namespace TeaTime.Tests.Selectors
 {
     public class MinuteOfHourSelectorTests
     {

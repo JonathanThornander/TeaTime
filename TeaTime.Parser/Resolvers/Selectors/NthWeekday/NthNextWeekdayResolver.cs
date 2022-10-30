@@ -1,12 +1,12 @@
 ﻿using System;
 using System.Linq;
-using Tea.Core.Expressions;
-using Tea.Core.Expressions.Functional;
-using Tea.Core.Expressions.Selectors.NthWeekday;
-using Tea.Parser.Exceptions;
-using Tea.Parser.Utils;
+using TeaTime.Core.Expressions;
+using TeaTime.Core.Expressions.Functional;
+using TeaTime.Core.Expressions.Selectors.NthWeekday;
+using TeaTime.Parser.Exceptions;
+using TeaTime.Parser.Utils;
 
-namespace Tea.Parser.Resolvers.Selectors.NthWeekday
+namespace TeaTime.Parser.Resolvers.Selectors.NthWeekday
 {
     internal class NthNextWeekdayResolver : ExpressionResolver
     {
@@ -22,7 +22,7 @@ namespace Tea.Parser.Resolvers.Selectors.NthWeekday
             }
 
             var days = new RangeParser().ParseRange(parsedSelector.Parameter, new WeekDayTranslator())
-               .Select(day => ((DayOfWeek)day))
+               .Select(day => (DayOfWeek)day)
                .ToArray();
 
             if (days.Length == 1)

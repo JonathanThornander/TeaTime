@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Runtime.Serialization;
 
-namespace Tea.Core.Exceptions
+namespace TeaTime.Core.Exceptions
 {
     [Serializable]
     public class ExpressionValidationException : Exception

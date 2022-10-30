@@ -1,13 +1,12 @@
-﻿using Tea.Parser.Exceptions;
-using Tea.Parser.Resolvers.Constants;
-using Tea.Parser.Resolvers.Functions;
-using Tea.Parser.Resolvers.Selectors;
-using Tea.Parser.Resolvers.Selectors.Modular;
-using Tea.Parser.Resolvers.Selectors.NthWeekday;
-using Tea.Parser.Utils;
+﻿using TeaTime.Parser.Exceptions;
 using TeaTime.Parser.Resolvers.Constants;
+using TeaTime.Parser.Resolvers.Functions;
+using TeaTime.Parser.Resolvers.Selectors;
+using TeaTime.Parser.Resolvers.Selectors.Modular;
+using TeaTime.Parser.Resolvers.Selectors.NthWeekday;
+using TeaTime.Parser.Utils;
 
-namespace Tea.Parser
+namespace TeaTime.Parser
 {
     internal class ExpressionResolverRouter
     {

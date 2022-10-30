@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Tea.Core.Expressions.Selectors.Modular
+namespace TeaTime.Core.Expressions.Selectors.Modular
 {
     public class MonthModFunction : SelectorExpression
     {

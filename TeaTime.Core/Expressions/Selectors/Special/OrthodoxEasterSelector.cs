@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Tea.Core.Expressions.Selectors.Special
+namespace TeaTime.Core.Expressions.Selectors.Special
 {
     public class OrthodoxEasterSelector : SelectorExpression
     {
@@ -60,8 +60,8 @@ namespace Tea.Core.Expressions.Selectors.Special
             int f = (19 * a + 16) % 30;
             int key = f + e + 3;
 
-            int month = (key > 30) ? 5 : 4;
-            int day = (key > 30) ? key - 30 : key;
+            int month = key > 30 ? 5 : 4;
+            int day = key > 30 ? key - 30 : key;
 
             return new DateTime(year, month, day);
         }

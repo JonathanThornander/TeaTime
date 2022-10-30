@@ -1,7 +1,7 @@
 ﻿using System;
-using Tea.Core.LINQExtensions;
+using TeaTime.Core.Extensions;
 
-namespace Tea.Core.Expressions.Selectors.NthWeekday
+namespace TeaTime.Core.Expressions.Selectors.NthWeekday
 {
     public class NthLastWeekdaySelector : NthWeekdayBaseSelector
     {

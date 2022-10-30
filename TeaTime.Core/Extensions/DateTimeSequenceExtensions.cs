@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace Tea.Core.LINQExtensions
+namespace TeaTime.Core.Extensions
 {
     internal static class DateTimeExtensions
     {
@@ -21,7 +21,7 @@ namespace Tea.Core.LINQExtensions
         ///<returns>The first dayOfWeek day following date, or date if it is on dayOfWeek.</returns>
         public static DateTime Previous(this DateTime date, DayOfWeek dayOfWeek)
         {
-            return date.AddDays(((dayOfWeek <= date.DayOfWeek ? 7 : 0) + dayOfWeek - date.DayOfWeek) - 7);
+            return date.AddDays((dayOfWeek <= date.DayOfWeek ? 7 : 0) + dayOfWeek - date.DayOfWeek - 7);
         }
 
         public static TraverseResult Traverse(this IEnumerable<DateTime?> sequence)

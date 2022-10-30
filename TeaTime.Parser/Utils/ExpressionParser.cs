@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using Tea.Parser.Exceptions;
+using TeaTime.Parser.Exceptions;
 
-namespace Tea.Parser.Utils
+namespace TeaTime.Parser.Utils
 {
     public class ExpressionParser
     {

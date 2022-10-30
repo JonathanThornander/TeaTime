@@ -1,7 +1,7 @@
 ﻿using System.Runtime.CompilerServices;
 
 [assembly: InternalsVisibleTo("Tea.Tests")]
-namespace Tea.Parser
+namespace TeaTime.Parser
 {
 
 }

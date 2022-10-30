@@ -1,6 +1,5 @@
-﻿using Tea.Core.Expressions;
-using Tea.Parser;
-using Tea.Parser.Utils;
+﻿using TeaTime.Core.Expressions;
+using TeaTime.Parser.Utils;
 
 namespace TeaTime.Parser.Resolvers.Constants
 {

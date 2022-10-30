@@ -1,4 +1,4 @@
-﻿namespace Tea.Parser.Utils
+﻿namespace TeaTime.Parser.Utils
 {
     internal interface INameToIntTranslator
     {

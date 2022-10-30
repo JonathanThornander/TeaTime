@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Tea.Core.Expressions
+namespace TeaTime.Core.Expressions
 {
     public abstract class SelectorExpression : Expression
     {
