@@ -10,6 +10,7 @@
     <Description>Contains the fundamentals for construction TeaTime expressions</Description>
     <Copyright>Jonathan Thornander</Copyright>
     <RepositoryType>git</RepositoryType>
+    <Version>1.0.1</Version>
   </PropertyGroup>
 
 </Project>
